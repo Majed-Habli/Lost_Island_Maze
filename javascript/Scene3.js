@@ -8,33 +8,29 @@ class Scene3 extends Phaser.Scene{
 
         this.player = this.physics.add.image(600/2-60, 600/2 +60,"player");
 
-        this.physics.world.enable([this.player, this.background]);
-        this.background.body.setCollideWorldBounds(true);
-        this.physics.add.collider(this.player, this.background, handleWaterCollision, null, this);
+        this.player.setCollideWorldBounds(true);
         this.cursorKeys = this.input.keyboard.createCursorKeys();
+        this.keys = this.input.keyboard.addKeys("W,A,S,D");
 
         function handleWaterCollision(player, water) {
         }
     }
 
     update(){
-        this.movePlayerManager();
-    }
+        this.player.setVelocity(0);
 
-    movePlayerManager(){
-        var gameSettings={
-        playerSpeed:100,
-    }
-        if(this.curseorKeys.left.isDown){
-            this.player.setVelocityX(-gameSettings.playerSpeed);
-        }else if (this.curseorKeys.right.isDown){
-            this.player.setVelocityX(gameSettings.playerSpeed);
+        if (this.keys.A.isDown) {
+            this.player.setVelocityX(-300);
+        } else if (this.keys.D.isDown) {
+            this.player.setVelocityX(300);
         }
 
-        if(this.curseorKeys.up.isDown){
-            this.player.setVelocityY(-gameSettings.playerSpeed);
-        }else if (this.curseorKeys.down.isDown){
-            this.player.setVelocityY(gameSettings.playerSpeed);
+        if (this.keys.W.isDown) {
+            this.player.setVelocityY(-300);
+        } else if (this.keys.S.isDown) {
+            this.player.setVelocityY(300);
         }
+        
     }
+
 }
