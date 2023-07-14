@@ -8,6 +8,9 @@ class Scene1 extends Phaser.Scene{
         this.load.image("ship1","/level1/ship-large2.png");
         this.load.image("bridge","/level1/bridge-vertical.png");
         this.load.image("player", "/level1/player.png");
+
+        this.load.image("background-lvl2", "../level2_images/bg-img-lvl2.png");
+        
     }
     
     create(){

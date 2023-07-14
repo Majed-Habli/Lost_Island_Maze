@@ -1,25 +1,20 @@
-class Scene2 extends Phaser.Scene{
+class Scene3 extends Phaser.Scene{
     constructor(){
-        super("playGame");
+        super("island1");
     }
-
-    
-    
     create(){
-        this.background = this.add.image(0,0,"background");
+        this.background = this.add.image(0,0,"background-lvl2");
         this.background.setOrigin(0,0);
-        this.background = this.add.image(600/2-70, 600/2 +100,"ship1");
-        this.background = this.add.image(600/2-60, 600/2 +60,"bridge");
+
         this.player = this.physics.add.image(600/2-60, 600/2 +60,"player");
 
         this.physics.world.enable([this.player, this.background]);
         this.background.body.setCollideWorldBounds(true);
         this.physics.add.collider(this.player, this.background, handleWaterCollision, null, this);
-        this.curseorKeys = this.input.keyboard.createCursorKeys();
+        this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         function handleWaterCollision(player, water) {
         }
-        this.scene.start("island1");
     }
 
     update(){
@@ -42,5 +37,4 @@ class Scene2 extends Phaser.Scene{
             this.player.setVelocityY(gameSettings.playerSpeed);
         }
     }
-
 }
