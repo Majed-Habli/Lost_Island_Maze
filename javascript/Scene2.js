@@ -16,6 +16,7 @@ class Scene2 extends Phaser.Scene{
         this.background.body.setCollideWorldBounds(true);
         this.physics.add.collider(this.player, this.background, handleWaterCollision, null, this);
         this.curseorKeys = this.input.keyboard.createCursorKeys();
+        this.scene.start("lvl6");
 
         function handleWaterCollision(player, water) {
         }
