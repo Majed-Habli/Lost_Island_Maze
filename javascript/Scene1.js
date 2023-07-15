@@ -6,7 +6,13 @@ class Scene1 extends Phaser.Scene{
     preload(){
         this.load.image("background", "../level1/waterbg.png");
         this.load.image("ship1","/level1/ship-large2.png");
-        this.load.image("bridge","/level1/bridge-vertical.png");
+        this.load.image("bridge-l6","/level1/bridge-l6.png");
+        this.load.image("bridge-l5","/level1/bridge-l5.png");
+        this.load.image("bridge-hl5","/level1/bridge-hl5.png");
+        this.load.image("bridge-l3","/level1/bridge-l3.png");
+        this.load.image("bridge-l2","/level1/bridge-l2.png");
+        this.load.image("bridge-vl2","/level1/bridge-vl2.png");
+        this.load.image("bridge","/level1/bridge.png");
         this.load.image("player", "/level1/player.png");
 
         this.load.image("bg-lvl2", "../level2_images/bg-img-lvl2.png");
