@@ -10,32 +10,34 @@ class Scene3 extends Phaser.Scene{
 
         this.map = this.physics.add.sprite(410, 65,"map");
 
+        //Player
         this.player = this.physics.add.sprite(173, 530,"player");
+        this.cameras.main.startFollow(player);
 
-        this.outlinetop = this.physics.add.image(600/2-65, 600/2 -200,"outlinetop").setImmovable(true);
-        this.physics.add.collider(this.player, this.outlinetop);
+        this.outlineTop = this.physics.add.image(600/2-65, 600/2 -200,"outlineTop").setImmovable(true);
+        this.physics.add.collider(this.player, this.outlineTop);
         
-        this.outlineright = this.physics.add.image(500, 290,"outlineright").setImmovable(true);
-        this.physics.add.collider(this.player, this.outlineright);
+        this.outlineRight = this.physics.add.image(500, 290,"outlineRight").setImmovable(true);
+        this.physics.add.collider(this.player, this.outlineRight);
         
-        this.outlineleft = this.physics.add.image(90, 290,"outlineleft").setImmovable(true);
-        this.physics.add.collider(this.player, this.outlineleft);
+        this.outlineLeft = this.physics.add.image(90, 290,"outlineLeft").setImmovable(true);
+        this.physics.add.collider(this.player, this.outlineLeft);
         
-        this.outlinebot = this.physics.add.image(357, 498,"outlinebot").setImmovable(true);
-        this.physics.add.collider(this.player, this.outlinebot);
+        this.outlineBot = this.physics.add.image(357, 498,"outlineBot").setImmovable(true);
+        this.physics.add.collider(this.player, this.outlineBot);
 
         //create columns and collision
         this.columns = [];
         this.columns.push (
-            this.column = this.physics.add.image(145, 519,"verticalshort").setImmovable(true),
-            this.column = this.physics.add.image(200, 519,"verticalshort").setImmovable(true),
-            this.column = this.physics.add.image(378, 78,"verticalshort").setImmovable(true),
-            this.column = this.physics.add.image(440, 80,"verticalshort").setImmovable(true),
-            this.column = this.physics.add.image(259, 373,"verticalshort").setImmovable(true),
-            this.column = this.physics.add.image(452, 403,"verticalshort").setImmovable(true),
-            this.column = this.physics.add.image(440, 180,"verticalshort").setImmovable(true),
-            this.column = this.physics.add.image(381, 240,"verticalshort").setImmovable(true),
-            this.column = this.physics.add.image(381, 300,"verticalshort").setImmovable(true)  
+            this.column = this.physics.add.image(145, 519,"verticalShort").setImmovable(true),
+            this.column = this.physics.add.image(200, 519,"verticalShort").setImmovable(true),
+            this.column = this.physics.add.image(378, 78,"verticalShort").setImmovable(true),
+            this.column = this.physics.add.image(440, 80,"verticalShort").setImmovable(true),
+            this.column = this.physics.add.image(259, 373,"verticalShort").setImmovable(true),
+            this.column = this.physics.add.image(452, 403,"verticalShort").setImmovable(true),
+            this.column = this.physics.add.image(440, 180,"verticalShort").setImmovable(true),
+            this.column = this.physics.add.image(381, 240,"verticalShort").setImmovable(true),
+            this.column = this.physics.add.image(381, 300,"verticalShort").setImmovable(true)  
         )
 
         this.columns.forEach(column => {this.physics.add.collider(this.player, column);});
@@ -43,19 +45,19 @@ class Scene3 extends Phaser.Scene{
         //create rows and collision
         this.rows = [];
         this.rows.push (
-            this.row = this.physics.add.image(462, 99,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(110, 496,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(238, 301,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(238, 230,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(238, 160,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(222, 350,"horizontalshort").setImmovable(true),  
-            this.row = this.physics.add.image(222, 397,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(475, 440,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(355, 440,"horizontalshort").setImmovable(true),   
-            this.row = this.physics.add.image(418, 149,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(404, 203,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(417, 265,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(417, 323,"horizontalshort").setImmovable(true)  
+            this.row = this.physics.add.image(462, 99,"horizontalShort").setImmovable(true),
+            this.row = this.physics.add.image(110, 496,"horizontalShort").setImmovable(true),
+            this.row = this.physics.add.image(238, 301,"horizontalShort").setImmovable(true),
+            this.row = this.physics.add.image(238, 230,"horizontalShort").setImmovable(true),
+            this.row = this.physics.add.image(238, 160,"horizontalShort").setImmovable(true),
+            this.row = this.physics.add.image(222, 350,"horizontalShort").setImmovable(true),  
+            this.row = this.physics.add.image(222, 397,"horizontalShort").setImmovable(true),
+            this.row = this.physics.add.image(475, 440,"horizontalShort").setImmovable(true),
+            this.row = this.physics.add.image(355, 440,"horizontalShort").setImmovable(true),   
+            this.row = this.physics.add.image(418, 149,"horizontalShort").setImmovable(true),
+            this.row = this.physics.add.image(404, 203,"horizontalShort").setImmovable(true),
+            this.row = this.physics.add.image(417, 265,"horizontalShort").setImmovable(true),
+            this.row = this.physics.add.image(417, 323,"horizontalShort").setImmovable(true)  
         )
 
         this.rows.forEach(row => {this.physics.add.collider(this.player, row);});
@@ -63,11 +65,11 @@ class Scene3 extends Phaser.Scene{
         //Create long columns and collisons
         this.longColumns = [];
         this.longColumns.push (
-            this.longColumn = this.physics.add.image(145, 230,"verticallong").setImmovable(true),
-            this.longColumn = this.physics.add.image(145, 370,"verticallong").setImmovable(true),
-            this.longColumn = this.physics.add.image(200, 230,"verticallong").setImmovable(true),
-            this.longColumn = this.physics.add.image(320, 230,"verticallong").setImmovable(true),
-            this.longColumn = this.physics.add.image(320, 370,"verticallong").setImmovable(true),    
+            this.longColumn = this.physics.add.image(145, 230,"verticalLong").setImmovable(true),
+            this.longColumn = this.physics.add.image(145, 370,"verticalLong").setImmovable(true),
+            this.longColumn = this.physics.add.image(200, 230,"verticalLong").setImmovable(true),
+            this.longColumn = this.physics.add.image(320, 230,"verticalLong").setImmovable(true),
+            this.longColumn = this.physics.add.image(320, 370,"verticalLong").setImmovable(true),    
         )
 
         this.longColumns.forEach(longColumn => {this.physics.add.collider(this.player, longColumn);});
@@ -75,7 +77,7 @@ class Scene3 extends Phaser.Scene{
           //Create long rows and collisons
           this.longRows = [];
           this.longRows.push (
-              this.longRow = this.physics.add.image(390, 380,"horizontallong").setImmovable(true), 
+              this.longRow = this.physics.add.image(390, 380,"horizontalLong").setImmovable(true), 
           )
   
           this.longRows.forEach(longRow => {this.physics.add.collider(this.player, longRow);});
