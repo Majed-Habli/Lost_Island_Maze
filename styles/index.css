@@ -32,6 +32,7 @@ img {
   width: 100%;
   position: relative;
   height: 120%;
+  z-index: -1;
 }
 
 .parallax {
@@ -191,7 +192,7 @@ img {
 
   position: absolute;
   right: 50%;
-  bottom: 1%;
+  bottom: 25%;
   transform: translate(50%, 50%);
 
   z-index: 4;
@@ -217,4 +218,50 @@ img {
   /* background-color: red; */
   height: 100vh;
   width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding-bottom: 100px;
+}
+
+.btn {
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 50px;
+  background: #ffbc75;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #ae8400;
+  text-decoration: none;
+}
+
+.chest-img {
+  position: absolute;
+  width: 300px;
+  left: 25%;
+  top: 168%;
+}
+
+#crab1 {
+  position: absolute;
+  width: 300px;
+  right: 2%;
+  top: 180%;
+  width: 150px;
+}
+
+#crab2 {
+  position: absolute;
+  width: 300px;
+  left: 2%;
+  top: 180%;
+  width: 150px;
 }
