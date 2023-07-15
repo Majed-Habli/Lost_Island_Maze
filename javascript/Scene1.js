@@ -9,7 +9,17 @@ class Scene1 extends Phaser.Scene{
         this.load.image("bridge","/level1/bridge-vertical.png");
         this.load.image("player", "/level1/player.png");
 
-        this.load.image("background-lvl2", "../level2_images/bg-img-lvl2.png");
+        this.load.image("bg-lvl2", "../level2_images/bg-img-lvl2.png");
+        this.load.image("map", "../level2_images/map.png");
+        this.load.image("outlinetop", "../level2_images/outline-top.png");
+        this.load.image("outlineleft", "../level2_images/outline-left.png");
+        this.load.image("outlinebot", "../level2_images/outline-bot.png");
+        this.load.image("outlineright", "../level2_images/outline-right.png");
+        this.load.image("horizontallong", "../level2_images/horizontal-long.png");
+        this.load.image("verticallong", "../level2_images/vertical-long.png");
+        this.load.image("horizontalshort", "../level2_images/horizontal-short.png");
+        this.load.image("verticalshort", "../level2_images/vertical-short.png");
+        this.load.image("crate", "../level2_images/crate.png");
         
     }
     

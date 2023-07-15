@@ -3,8 +3,26 @@ class Scene3 extends Phaser.Scene{
         super("island1");
     }
     create(){
-        this.background = this.add.image(0,0,"background-lvl2");
+        this.background = this.add.image(0,0,"bg-lvl2");
         this.background.setOrigin(0,0);
+
+        this.map = this.add.image(600/2-70, 600/2 +100,"map");
+        this.physics.add.collider(this.player, this.outlinetop);
+
+        this.outlinetop = this.add.image(600/2-65, 600/2 -200,"outlinetop");
+        // this.outlinetop.setImmovable(true);
+        
+        
+        // this.outlineright = this.add.image(500, 290,"outlineright");
+        // this.outlineleft = this.add.image(90, 290,"outlineleft");
+        // this.outlinebot = this.add.image(357, 498,"outlinebot")
+
+        // this.verticalshort = this.add.image(378, 78,"verticalshort");
+        // this.verticalshort = this.add.image(200, 520,"verticalshort");
+
+        // this.horizontalshort = this.add.image(378, 78,"horizontalshort");
+        // this.physics.add.collider(this.player, this.row);
+
 
         this.player = this.physics.add.image(600/2-60, 600/2 +60,"player");
 
