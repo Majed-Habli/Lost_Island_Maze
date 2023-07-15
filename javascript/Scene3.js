@@ -30,7 +30,12 @@ class Scene3 extends Phaser.Scene{
             this.column = this.physics.add.image(145, 519,"verticalshort").setImmovable(true),
             this.column = this.physics.add.image(200, 519,"verticalshort").setImmovable(true),
             this.column = this.physics.add.image(378, 78,"verticalshort").setImmovable(true),
-            this.column = this.physics.add.image(440, 80,"verticalshort").setImmovable(true),   
+            this.column = this.physics.add.image(440, 80,"verticalshort").setImmovable(true),
+            this.column = this.physics.add.image(259, 373,"verticalshort").setImmovable(true),
+            this.column = this.physics.add.image(452, 403,"verticalshort").setImmovable(true),
+            this.column = this.physics.add.image(440, 180,"verticalshort").setImmovable(true),
+            this.column = this.physics.add.image(381, 240,"verticalshort").setImmovable(true),
+            this.column = this.physics.add.image(381, 300,"verticalshort").setImmovable(true)  
         )
 
         this.columns.forEach(column => {this.physics.add.collider(this.player, column);});
@@ -39,12 +44,52 @@ class Scene3 extends Phaser.Scene{
         this.rows = [];
         this.rows.push (
             this.row = this.physics.add.image(462, 99,"horizontalshort").setImmovable(true),
-            this.row = this.physics.add.image(110, 496,"horizontalshort").setImmovable(true),   
+            this.row = this.physics.add.image(110, 496,"horizontalshort").setImmovable(true),
+            this.row = this.physics.add.image(238, 301,"horizontalshort").setImmovable(true),
+            this.row = this.physics.add.image(238, 230,"horizontalshort").setImmovable(true),
+            this.row = this.physics.add.image(238, 160,"horizontalshort").setImmovable(true),
+            this.row = this.physics.add.image(222, 350,"horizontalshort").setImmovable(true),  
+            this.row = this.physics.add.image(222, 397,"horizontalshort").setImmovable(true),
+            this.row = this.physics.add.image(475, 440,"horizontalshort").setImmovable(true),
+            this.row = this.physics.add.image(355, 440,"horizontalshort").setImmovable(true),   
+            this.row = this.physics.add.image(418, 149,"horizontalshort").setImmovable(true),
+            this.row = this.physics.add.image(404, 203,"horizontalshort").setImmovable(true),
+            this.row = this.physics.add.image(417, 265,"horizontalshort").setImmovable(true),
+            this.row = this.physics.add.image(417, 323,"horizontalshort").setImmovable(true)  
         )
 
         this.rows.forEach(row => {this.physics.add.collider(this.player, row);});
 
-        
+        //Create long columns and collisons
+        this.longColumns = [];
+        this.longColumns.push (
+            this.longColumn = this.physics.add.image(145, 230,"verticallong").setImmovable(true),
+            this.longColumn = this.physics.add.image(145, 370,"verticallong").setImmovable(true),
+            this.longColumn = this.physics.add.image(200, 230,"verticallong").setImmovable(true),
+            this.longColumn = this.physics.add.image(320, 230,"verticallong").setImmovable(true),
+            this.longColumn = this.physics.add.image(320, 370,"verticallong").setImmovable(true),    
+        )
+
+        this.longColumns.forEach(longColumn => {this.physics.add.collider(this.player, longColumn);});
+
+          //Create long rows and collisons
+          this.longRows = [];
+          this.longRows.push (
+              this.longRow = this.physics.add.image(390, 380,"horizontallong").setImmovable(true), 
+          )
+  
+          this.longRows.forEach(longRow => {this.physics.add.collider(this.player, longRow);});
+
+          //Create long rows and collisons
+          this.crates = [];
+          this.crates.push (
+            this.crate = this.physics.add.image(230, 445,"crate").setImmovable(true),
+            this.crate = this.physics.add.image(398, 445,"crate").setImmovable(true),
+            this.crate = this.physics.add.image(375, 121,"crate").setImmovable(true),
+            this.crate = this.physics.add.image(375, 145,"crate").setImmovable(true)
+          )
+
+          this.crates.forEach(crate => {this.physics.add.collider(this.player, crate);});
 
         //Overlap over the map to go to next level
         this.physics.add.overlap(this.player, this.map, this.nextLevel, null, this);
