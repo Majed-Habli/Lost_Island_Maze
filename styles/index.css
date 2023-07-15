@@ -31,7 +31,7 @@ img {
 .sea {
   width: 100%;
   position: relative;
-  height: 100%;
+  height: 120%;
 }
 
 .parallax {
@@ -68,7 +68,7 @@ img {
   right: 0;
 }
 
-.container {
+.rocks-ship-container {
   width: 100%;
   height: 500px;
 
@@ -129,4 +129,92 @@ img {
   height: 220px;
 
   z-index: 2;
+}
+
+.cloud-left-container {
+  width: 100%;
+  height: 500px;
+  /* background-color: blue; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  right: 50%;
+  top: 0;
+  /* transform: translate(50%, 50%); */
+}
+
+.cloud-6 img {
+  margin-left: 600px;
+}
+
+.cloud-right-container-top {
+  width: 100%;
+  height: 500px;
+  /* background-color: blue; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  left: 40%;
+  top: -10%;
+  /* transform: translate(50%, 50%); */
+}
+
+.cloud-right-container-bot {
+  width: 100%;
+  height: 500px;
+  /* background-color: blue; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  left: 43%;
+  top: 10%;
+  /* transform: translate(50%, 50%); */
+}
+
+.anchor-container {
+  width: 200px;
+  height: 100px;
+  /* background-color: blue; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  right: 50%;
+  bottom: 1%;
+  transform: translate(50%, 50%);
+
+  z-index: 4;
+}
+
+.anchor-container img {
+  width: 200px;
+}
+
+.water-bg {
+  /* background-color: linear-gradient(
+    90deg,
+    rgba(75, 182, 207, 1) 0%,
+    rgba(104, 251, 192, 1) 0%,
+    rgba(75, 182, 207, 1) 100%
+  ); */
+  background: rgb(104, 251, 192);
+  background: radial-gradient(
+    circle,
+    rgba(104, 251, 192, 1) 0%,
+    rgba(75, 182, 207, 1) 100%
+  );
+  /* background-color: red; */
+  height: 100vh;
+  width: 100%;
 }

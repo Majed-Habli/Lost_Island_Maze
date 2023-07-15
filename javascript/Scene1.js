@@ -14,7 +14,6 @@ class Scene1 extends Phaser.Scene{
         this.load.image("bridge-vl2","/level1/bridge-vl2.png");
         this.load.image("bridge","/level1/bridge.png");
         this.load.image("player", "/level1/player.png");
-<<<<<<< HEAD
 
         this.load.image("bg-lvl2", "../level2_images/bg-img-lvl2.png");
         this.load.image("map", "../level2_images/map.png");
@@ -28,9 +27,7 @@ class Scene1 extends Phaser.Scene{
         this.load.image("verticalShort", "../level2_images/vertical-short.png");
         this.load.image("crate", "../level2_images/crate.png");
         
-=======
         this.load.image("door", "/level1/door.png")
->>>>>>> 979d39550259d2b342e0e4fa0d2439b3a3794e3d
     }
     
     create(){
