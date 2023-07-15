@@ -4,24 +4,30 @@ class Scene6 extends Phaser.Scene {
     }
 
     create() {
+        //Adding background and player
         this.background = this.add.image(0, 0, "underground");
         this.background.setOrigin(0, 0);
-
-        this.player = this.physics.add.sprite(600 / 2 - 60, 600 / 2 + 60, "player");
+        this.player = this.physics.add.sprite(300 , 600  + 60, "player");
         this.player.setCollideWorldBounds(true);
 
-        this.row = this.physics.add.sprite(300, 300, "row");
-        this.row.setImmovable(true); // Make the row immovable
+        //Adding column and row
+        this.column= this.physics.add.sprite(300 + 60, 600 - 60, "column");
+        this.column.setImmovable(true);
+        this.row = this.physics.add.sprite(200 -60, 400  -60, "row");
+        this.row.setImmovable(true);
 
+        //Adding keybinds
         this.curseorKeys = this.input.keyboard.createCursorKeys();
         this.keys = this.input.keyboard.addKeys("W,A,S,D");
 
-        // Set up collision between player and row
+        //Creating collision
+        this.physics.add.collider(this.player, this.column);
         this.physics.add.collider(this.player, this.row);
-
+        
     }
 
     update() {
+        //Movement
         this.player.setVelocity(0);
 
         if (this.keys.A.isDown) {
