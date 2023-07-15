@@ -14,99 +14,148 @@ class Scene5 extends Phaser.Scene {
         this.player = this
             .physics
             .add
-            .image(600 / 2 - 60, 600 / 2 + 60, "player");
+            .sprite(600 / 2 - 60, 600 / 2 + 60, "player");
 
-        this.treeOne = this
-            .add
-            .image(300, 300, "tree1");
-        this.treeOne = this
-            .add
-            .image(200, 200, "tree1");
-        this.treeOne = this
-            .add
-            .image(100, 300, "tree1");
-        this.treeOne = this
-            .add
-            .image(150, 150, "tree1");
-        this.treeOne = this
-            .add
-            .image(400, 350, "tree1");
-        this.treeOne = this
-            .add
-            .image(500, 100, "tree1");
-        this.treeOne = this
-            .add
-            .image(400, 200, "tree1");
-        this.treeOne = this
-            .add
-            .image(500, 300, "tree1");
-        this.treeOne = this
-            .add
-            .image(500, 200, "tree1");
-        this.treeOne = this
-            .add
-            .image(50, 150, "tree1");
+        // create tree One
+        this.createTreeOne(300, 300);
+        this.createTreeOne(200, 200);
+        this.createTreeOne(100, 300);
+        this.createTreeOne(150, 150);
+        this.createTreeOne(400, 350);
+        this.createTreeOne(500, 100);
+        this.createTreeOne(400, 200);
+        this.createTreeOne(500, 300);
+        this.createTreeOne(500, 200);
+        this.createTreeOne(50, 150);
 
-        this.treeTwo = this
-            .add
-            .image(50, 230, "tree2");
-        this.treeTwo = this
-            .add
-            .image(300, 150, "tree2");
-        this.treeTwo = this
-            .add
-            .image(50, 150, "tree2");
-        this.treeTwo = this
-            .add
-            .image(200, 300, "tree2");
-        this.treeTwo = this
-            .add
-            .image(250, 230, "tree2");
-        this.treeTwo = this
-            .add
-            .image(390, 270, "tree2");
-        this.treeTwo = this
-            .add
-            .image(570, 220, "tree2");
-        this.treeTwo = this
-            .add
-            .image(200, 100, "tree2");
-        this.treeTwo = this
-            .add
-            .image(50, 350, "tree2");
+        // create tree Two
+        this.createTreeTwo(50, 230);
+        this.createTreeTwo(350, 150);
+        this.createTreeTwo(50, 150);
+        this.createTreeTwo(200, 300);
+        this.createTreeTwo(250, 230);
+        this.createTreeTwo(390, 270);
+        this.createTreeTwo(570, 220);
+        this.createTreeTwo(200, 100);
+        this.createTreeTwo(50, 350);
 
-        this
-            .physics
-            .add
-            .collider(this.player, this.treeOne, handleTreeCollision, null, this);
-
-        this
-            .physics
-            .add
-            .collider(this.player, this.treeTwo, handleTreeCollision, null, this);
+        // create tree three
+        this.createTreeTwo(150, 250);
+        this.createTreeTwo(450, 150);
+        this.createTreeTwo(320, 220);
+        this.createTreeTwo(350, 100);
+        this.createTreeTwo(150, 150);
 
         this
             .physics
             .world
             .enable([this.player, this.background]);
+
         this
             .background
             .body
             .setCollideWorldBounds(true);
         this
-            .physics
-            .add
-            .collider(this.player, this.background, handleWaterCollision, null, this);
-        this.curseorKeys = this
+            .player
+            .body
+            .setCollideWorldBounds(true);
+
+        this.cursors = this
             .input
             .keyboard
             .createCursorKeys();
 
-        function handleWaterCollision(player, water) {}
+        this.keys = this
+            .input
+            .keyboard
+            .addKeys("W,A,S,D");
 
-        function handleTreeCollision(player, tree) {
-        // Handle collision between player and tree You can add custom logic here
+        this
+            .physics
+            .add
+            .collider(this.player, this.treeGroup, this.handleCollision, null, this);
     }
+
+    createTreeThree(x, y) {
+        const tree = this
+            .physics
+            .add
+            .sprite(x, y, "tree3");
+
+        if (!this.treeGroup) {
+            this.treeGroup = this
+                .physics
+                .add
+                .group();
+        }
+
+        this
+            .treeGroup
+            .add(tree);
+
+        tree.setCollideWorldBounds(true);
+        tree
+            .body
+            .setAllowGravity(false);
+        tree
+            .body
+            .setImmovable(true);
+    }
+
+    createTreeTwo(x, y) {
+        const tree = this
+            .physics
+            .add
+            .sprite(x, y, "tree2");
+
+        if (!this.treeGroup) {
+            this.treeGroup = this
+                .physics
+                .add
+                .group();
+        }
+
+        this
+            .treeGroup
+            .add(tree);
+
+        tree.setCollideWorldBounds(true);
+        tree
+            .body
+            .setAllowGravity(false);
+        tree
+            .body
+            .setImmovable(true);
+    }
+
+    createTreeOne(x, y) {
+        const tree = this
+            .physics
+            .add
+            .sprite(x, y, "tree1");
+
+        if (!this.treeGroup) {
+            this.treeGroup = this
+                .physics
+                .add
+                .group();
+        }
+
+        this
+            .treeGroup
+            .add(tree);
+
+        tree.setCollideWorldBounds(true);
+        tree
+            .body
+            .setAllowGravity(false);
+        tree
+            .body
+            .setImmovable(true);
+    }
+
+    handleCollision(player, object) {
+        player.setVelocity(0, 0);
     }
 
     update() {
@@ -114,29 +163,28 @@ class Scene5 extends Phaser.Scene {
     }
 
     movePlayerManager() {
-        var gameSettings = {
-            playerSpeed: 100
-        };
-        if (this.curseorKeys.left.isDown) {
+        this
+            .player
+            .setVelocity(0);
+
+        if (this.keys.A.isDown) {
             this
                 .player
-                .setVelocityX(-gameSettings.playerSpeed);
-        } else if (this.curseorKeys.right.isDown) {
+                .setVelocityX(-120);
+        } else if (this.keys.D.isDown) {
             this
                 .player
-                .setVelocityX(gameSettings.playerSpeed);
+                .setVelocityX(120);
         }
 
-        if (this.curseorKeys.up.isDown) {
+        if (this.keys.W.isDown) {
             this
                 .player
-                .setVelocityY(-gameSettings.playerSpeed);
-        } else if (this.curseorKeys.down.isDown) {
+                .setVelocityY(-120);
+        } else if (this.keys.S.isDown) {
             this
                 .player
-                .setVelocityY(gameSettings.playerSpeed);
+                .setVelocityY(120);
         }
     }
-
-    
 }

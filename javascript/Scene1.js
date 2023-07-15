@@ -13,12 +13,21 @@ class Scene1 extends Phaser.Scene {
         this
             .load
             .image("bridge", "/level1/bridge-vertical.png");
-        this
-            .load
-            .image("player", "/level1/player.png");
-        this
-            .load
-            .image("tree1", "./../website_images/level5Images/TreeOne.png");
+        // this
+        //     .load
+        //     .image("player", "/level1/player.png");
+        this.load.spritesheet("player", "./../level1/player.png", {
+          frameWidth: 16,
+          frameHeight: 16,
+        });
+        this.load.spritesheet(
+          "tree1",
+          "./../website_images/level5Images/TreeOne.png",
+          {
+            frameWidth: 50,
+            frameHeight: 50,
+          }
+        );
         this
             .load
             .image("tree2", "./../website_images/level5Images/TreeTwo.png");
