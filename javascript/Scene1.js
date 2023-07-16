@@ -21,7 +21,6 @@ class Scene1 extends Phaser.Scene{
         this.load.image("player", "/level1/player.png");
 
         this.load.image("bg-lvl2", "../level2_images/bg-img-lvl2.png");
-        this.load.image("map", "../level2_images/map.png");
         this.load.image("outlineTop", "../level2_images/outline-top.png");
         this.load.image("outlineLeft", "../level2_images/outline-left.png");
         this.load.image("outlineBot", "../level2_images/outline-bot.png");
@@ -42,7 +41,7 @@ class Scene1 extends Phaser.Scene{
     
     create(){
         this.add.text(20, 20, "Loading the game....");
-        this.scene.start("playGame");
+        this.scene.start("island2");
     }
 
 }

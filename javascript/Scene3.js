@@ -2,110 +2,79 @@ class Scene3 extends Phaser.Scene{
     constructor(){
         super("island2");
     }
+    preload(){
+        this.obstacleGroup = this.physics.add.group();
+    }
     create(){
 
         //Add borders, background and player + collision
         this.background = this.add.image(0,0,"bg-lvl2");
         this.background.setOrigin(0,0);
 
-        //Create mini-map
-        this.map = this.physics.add.sprite(410, 65,"map");
-
-        //Create Player
-        this.player = this.physics.add.sprite(173, 530,"player");
-
         //Create Bombs
-        this.bomb = this.physics.add.image(285, 400,"bomb").setImmovable(true);
-        this.bomb = this.physics.add.image(170, 200,"bomb").setImmovable(true);
-        // this.physics.add.collider(this.player, this.bomb);
-        this.bomb.setCollideWorldBounds(true);
-        this.bomb.body.setAllowGravity(true);
+
+        this.createObstacle(285, 400,"bomb");
+        this.createObstacle(170, 200,"bomb");
 
         //Create Maze Borders
-        this.outlineTop = this.physics.add.image(600/2-65, 600/2 -200,"outlineTop").setImmovable(true);
-        this.physics.add.collider(this.player, this.outlineTop);
-        
-        this.outlineRight = this.physics.add.image(500, 290,"outlineRight").setImmovable(true);
-        this.physics.add.collider(this.player, this.outlineRight);
-        
-        this.outlineLeft = this.physics.add.image(90, 290,"outlineLeft").setImmovable(true);
-        this.physics.add.collider(this.player, this.outlineLeft);
-        
-        this.outlineBot = this.physics.add.image(357, 498,"outlineBot").setImmovable(true);
-        this.physics.add.collider(this.player, this.outlineBot);
+
+        this.createObstacle(600/2-65, 600/2 -200,"outlineTop");
+        this.createObstacle(500, 290,"outlineRight");
+        this.createObstacle(90, 290,"outlineLeft");
+        this.createObstacle(357, 498,"outlineBot");
 
         //create columns and collision
-        this.columns = [];
-        this.columns.push (
-            this.column = this.physics.add.image(145, 519,"verticalShort").setImmovable(true),
-            this.column = this.physics.add.image(200, 519,"verticalShort").setImmovable(true),
-            this.column = this.physics.add.image(378, 78,"verticalShort").setImmovable(true),
-            this.column = this.physics.add.image(440, 80,"verticalShort").setImmovable(true),
-            this.column = this.physics.add.image(259, 373,"verticalShort").setImmovable(true),
-            this.column = this.physics.add.image(452, 403,"verticalShort").setImmovable(true),
-            this.column = this.physics.add.image(440, 180,"verticalShort").setImmovable(true),
-            this.column = this.physics.add.image(381, 240,"verticalShort").setImmovable(true),
-            this.column = this.physics.add.image(381, 300,"verticalShort").setImmovable(true)  
-        )
 
-        this.columns.forEach(column => {this.physics.add.collider(this.player, column);});
+        this.createObstacle(145, 519,"verticalShort");
+        this.createObstacle(200, 519,"verticalShort");
+        this.createObstacle(378, 78,"verticalShort");
+        this.createObstacle(440, 80,"verticalShort");
+        this.createObstacle(259, 373,"verticalShort");
+        this.createObstacle(452, 403,"verticalShort");
+        this.createObstacle(440, 180,"verticalShort");
+        this.createObstacle(381, 240,"verticalShort");
+        this.createObstacle(381, 300,"verticalShort");
 
         //create rows and collision
-        this.rows = [];
-        this.rows.push (
-            this.row = this.physics.add.image(462, 99,"horizontalShort").setImmovable(true),
-            this.row = this.physics.add.image(110, 496,"horizontalShort").setImmovable(true),
-            this.row = this.physics.add.image(238, 301,"horizontalShort").setImmovable(true),
-            this.row = this.physics.add.image(238, 230,"horizontalShort").setImmovable(true),
-            this.row = this.physics.add.image(238, 160,"horizontalShort").setImmovable(true),
-            this.row = this.physics.add.image(222, 350,"horizontalShort").setImmovable(true),  
-            this.row = this.physics.add.image(222, 397,"horizontalShort").setImmovable(true),
-            this.row = this.physics.add.image(475, 440,"horizontalShort").setImmovable(true),
-            this.row = this.physics.add.image(355, 440,"horizontalShort").setImmovable(true),   
-            this.row = this.physics.add.image(418, 149,"horizontalShort").setImmovable(true),
-            this.row = this.physics.add.image(404, 203,"horizontalShort").setImmovable(true),
-            this.row = this.physics.add.image(417, 265,"horizontalShort").setImmovable(true),
-            this.row = this.physics.add.image(417, 323,"horizontalShort").setImmovable(true)  
-        )
 
-        this.rows.forEach(row => {this.physics.add.collider(this.player, row);});
+        this.createObstacle(462, 99,"horizontalShort");
+        this.createObstacle(110, 496,"horizontalShort");
+        this.createObstacle(238, 301,"horizontalShort");
+        this.createObstacle(238, 230,"horizontalShort");
+        this.createObstacle(238, 160,"horizontalShort");
+        this.createObstacle(222, 350,"horizontalShort");
+        this.createObstacle(222, 397,"horizontalShort");
+        this.createObstacle(475, 440,"horizontalShort");
+        this.createObstacle(355, 440,"horizontalShort");
+        this.createObstacle(418, 149,"horizontalShort");
+        this.createObstacle(404, 203,"horizontalShort");
+        this.createObstacle(417, 265,"horizontalShort");
+        this.createObstacle(417, 323,"horizontalShort");
 
         //Create long columns and collisons
-        this.longColumns = [];
-        this.longColumns.push (
-            this.longColumn = this.physics.add.image(145, 230,"verticalLong").setImmovable(true),
-            this.longColumn = this.physics.add.image(145, 370,"verticalLong").setImmovable(true),
-            this.longColumn = this.physics.add.image(200, 230,"verticalLong").setImmovable(true),
-            this.longColumn = this.physics.add.image(320, 230,"verticalLong").setImmovable(true),
-            this.longColumn = this.physics.add.image(320, 370,"verticalLong").setImmovable(true),    
-        )
 
-        this.longColumns.forEach(longColumn => {this.physics.add.collider(this.player, longColumn);});
+        this.createObstacle(145, 230,"verticalLong");
+        this.createObstacle(145, 370,"verticalLong");
+        this.createObstacle(200, 230,"verticalLong");
+        this.createObstacle(320, 230,"verticalLong");
+        this.createObstacle(320, 370,"verticalLong");
 
           //Create long rows and collisons
-          this.longRows = [];
-          this.longRows.push (
-              this.longRow = this.physics.add.image(390, 380,"horizontalLong").setImmovable(true), 
-          )
-  
-          this.longRows.forEach(longRow => {this.physics.add.collider(this.player, longRow);});
+        this.createObstacle(390, 380,"horizontalLong");
 
-          //Create long rows and collisons
-          
-          this.crates = [];
-          this.crates.push (
-            this.crate = this.physics.add.image(230, 445,"crate").setImmovable(true),
-            this.crate = this.physics.add.image(398, 445,"crate").setImmovable(true),
-            this.crate = this.physics.add.image(375, 121,"crate").setImmovable(true),
-            this.crate = this.physics.add.image(375, 145,"crate").setImmovable(true)
-          )
+          //Create long rows and collisons     
+        this.createObstacle(230, 445,"crate");
+        this.createObstacle(398, 445,"crate");
+        this.createObstacle(375, 121,"crate");
+        this.createObstacle(375, 145,"crate");
 
-          this.crates.forEach(crate => {this.physics.add.collider(this.player, crate);});
-            
-          
+         //Create Player
+        this.player = this.physics.add.image(173, 530,"player");
+
+        //Create door
+        this.door = this.physics.add.staticSprite(410, 50, "door")
 
         //key binders
-        this.cursorKeys = this.input.keyboard.createCursorKeys();
         this.keys = this.input.keyboard.addKeys("W,A,S,D");
         window.score=5;
 
@@ -114,6 +83,9 @@ class Scene3 extends Phaser.Scene{
             this.showWinModal();
             this.player.body.moves = false;
         }
+
+        this.player.body.setCollideWorldBounds(true);
+        this.physics.add.collider(this.player,this.obstacleGroup,this.handleCollision, null, this);
 
         this.scoreText =this.add.text(20, 20, "Score: " + score);
         this.physics.add.collider(this.player, this.door,enterCollision, undefined, this);
@@ -148,16 +120,16 @@ class Scene3 extends Phaser.Scene{
         
     }
 
-    // createObstacle(x,y,image){
+    createObstacle(x,y,image){
 
-    //     let obstacle = this.physics.add.image(x,y,image);
-    //     this.obstacleGroup.add(obstacle);
+        let obstacle = this.physics.add.image(x,y,image);
+        this.obstacleGroup.add(obstacle);
  
-    //     obstacle.setCollideWorldBounds(true);
-    //     obstacle.body.setImmovable(true);
-    //     obstacle.body.setAllowGravity(true);
+        obstacle.setCollideWorldBounds(true);
+        obstacle.body.setImmovable(true);
+        obstacle.body.setAllowGravity(true);
         
-    // }
+    }
 
     handleCollision(player, object) {
         if (object.texture.key === "bomb") {
@@ -217,7 +189,7 @@ class Scene3 extends Phaser.Scene{
 
                 nextLevelButton.on("pointerup", () => {
                     this.music.destroy();
-                    this.scene.start("island2");
+                    this.scene.start("lvl6");
                     modalBackground.destroy();
                     winText.destroy();
                     nextLevelButton.destroy();
