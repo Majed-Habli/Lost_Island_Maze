@@ -8,12 +8,13 @@ class Scene3 extends Phaser.Scene{
         this.background = this.add.image(0,0,"bg-lvl2");
         this.background.setOrigin(0,0);
 
+        //Create mini-map
         this.map = this.physics.add.sprite(410, 65,"map");
 
-        //Player
+        //Create Player
         this.player = this.physics.add.sprite(173, 530,"player");
-        this.cameras.main.startFollow(player);
 
+        //Create Maze Borders
         this.outlineTop = this.physics.add.image(600/2-65, 600/2 -200,"outlineTop").setImmovable(true);
         this.physics.add.collider(this.player, this.outlineTop);
         
@@ -99,7 +100,7 @@ class Scene3 extends Phaser.Scene{
             alert("Next Level");
         }
   
-        this.player.setCollideWorldBounds(true);
+        
 
         //key binders
         this.cursorKeys = this.input.keyboard.createCursorKeys();
