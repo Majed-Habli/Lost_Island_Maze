@@ -11,9 +11,7 @@ window.onload=function(){
                 debug:false
             }
         }
-
     }
 
     var game = new Phaser.Game(config);
-    // var score = 0;
 }

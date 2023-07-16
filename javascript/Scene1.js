@@ -10,7 +10,6 @@ class Scene1 extends Phaser.Scene{
         this.load.image("column", "../underground/verticalBlock.png");
         this.load.image("goal", "../underground/treasure.png");
         this.load.image("ghost", "../underground/ghostPic.png");
-        this.load.audio("undergroundSong", "../underground/marioUnderground.mp3");
         this.load.image("ship1","/level1/ship-large2.png");
         this.load.image("bridge-l6","/level1/bridge-l6.png");
         this.load.image("bridge-l5","/level1/bridge-l5.png");
@@ -22,11 +21,14 @@ class Scene1 extends Phaser.Scene{
         this.load.image("player", "/level1/player.png");
         this.load.image("bomb", "/level1/bombpic.png");
         this.load.image("door", "/level1/door.png");
+
+        this.load.audio("lvl6Audio", "../underground/marioUnderground.mp3");
+        this.load.audio("lvl1Audio", "/level1/LegendOfZelda.mp3");
     }
     
     create(){
         this.add.text(20, 20, "Loading the game....");
-        this.scene.start("lvl6");
+        this.scene.start("playGame");
     }
 
 }

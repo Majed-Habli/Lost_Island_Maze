@@ -1,17 +1,14 @@
 class Scene6 extends Phaser.Scene
     {
-    constructor()
-    {
+    constructor(){
         super("lvl6");
     }
 
-    preload()
-    {
+    preload(){
         this.obstacleGroup = this.physics.add.group();
     }
 
-    create()
-    {
+    create(){
 
         this.background = this.add.image(0, 0, "underground");
         this.background.setOrigin(0, 0);
@@ -61,7 +58,7 @@ class Scene6 extends Phaser.Scene
         this.physics.add.collider(this.player, this.obstacleGroup, this.handleCollision, null, this);
 
         this.keys = this.input.keyboard.addKeys("W,A,S,D");
-        window.score = 5;
+        // window.score = 5;
 
         function enterCollision()
         {
@@ -74,7 +71,7 @@ class Scene6 extends Phaser.Scene
 
         this.physics.add.collider(this.player, this.goal, enterCollision, undefined, this);
 
-        this.music = this.sound.add('undergroundSong',
+        this.music = this.sound.add('lvl6Audio',
         {
             volume: 0.2,
             loop: true
@@ -99,7 +96,6 @@ class Scene6 extends Phaser.Scene
     {
         if (object.texture.key === "ghost") 
         {
-            let objBomb = object.texture.key == "ghost";
             this.DecrementScore();
             this.scoreText.setText('Score: ' + score);
 
@@ -111,51 +107,42 @@ class Scene6 extends Phaser.Scene
     }
 
 
-    update()
-    {
+    update(){
 
         this.player.setVelocity(0);
 
-        if (this.keys.A.isDown)
-        {
+        if (this.keys.A.isDown) {
             this.player.setVelocityX(-300);
-        } else if (this.keys.D.isDown) 
-        {
+        } else if (this.keys.D.isDown){
             this.player.setVelocityX(300);
         }
 
-        if (this.keys.W.isDown) 
-        {
+        if (this.keys.W.isDown) {
             this.player.setVelocityY(-300);
-        } else if (this.keys.S.isDown) 
-        {
+        } else if (this.keys.S.isDown) {
             this.player.setVelocityY(300);
         }
 
-        if (score == 0) 
-        {
+        if (score == 0) {
             this.showWinModal();
         }
 
     }
 
-    IncrementScore() 
-    {
+    IncrementScore() {
         score = score + 5;
         console.log(score);
         return;
     }
 
-    DecrementScore() 
-    {
+    DecrementScore() {
         score = score - 1;
         console.log(score);
         return;
     }
 
 
-    showWinModal() 
-    {
+    showWinModal() {
         const modalBackground = this.add.graphics();
 
         modalBackground.fillStyle(0x000000, 0.9);
@@ -178,14 +165,13 @@ class Scene6 extends Phaser.Scene
             });
         nextLevelButton.setOrigin(0.5);
 
-        if (score == 0) 
-        {
+        if (score == 0) {
+
             nextLevelButton.inputEnabled = false;
             winText.setText('You lost!!');
             this.player.body.moves = false;
         } 
-        else 
-        {
+        else {
 
             nextLevelButton.setInteractive();
 

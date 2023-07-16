@@ -48,8 +48,12 @@ class Scene2 extends Phaser.Scene{
 
         this.physics.add.collider(this.player, this.door,enterCollision, undefined, this);
 
-        // this.add.text(20, 20, "Loading the game....");
-
+        this.music = this.sound.add('lvl1Audio',
+        {
+            volume: 0.2,
+            loop: true
+        });
+        this.music.play();
     }
 
     createObstacle(x,y,image){
@@ -65,10 +69,7 @@ class Scene2 extends Phaser.Scene{
 
     handleCollision(player, object) {
         if (object.texture.key === "bomb") {
-            let objBomb=object.texture.key =="bomb";
             this.DecrementScore();
-            // this.scene.start("bootGame");
-            // objBomb.destroy();
             this.scoreText.setText('Score: ' + score);
 
         } else {
@@ -99,7 +100,7 @@ class Scene2 extends Phaser.Scene{
         
     }
 
-    IncrementScore (){
+    IncrementScore() {
         score= score+5;
         console.log(score);
         return;
@@ -136,17 +137,18 @@ class Scene2 extends Phaser.Scene{
             nextLevelButton.setOrigin(0.5);
 
             if(score==0){
+
                 nextLevelButton.inputEnabled=false;
                 winText.setText('You lost!!');
                 this.player.body.moves = false;
-            }else{
+            }
+            else{
                 
                 nextLevelButton.setInteractive();
 
                 nextLevelButton.on("pointerup", () => {
-                    // this.goToNextLevel();
+                    this.music.destroy();
                     this.scene.start("lvl6");
-
                     modalBackground.destroy();
                     winText.destroy();
                     nextLevelButton.destroy();
@@ -155,9 +157,7 @@ class Scene2 extends Phaser.Scene{
             }
         
 
-        const restart = this
-            .add
-            .text(this.game.config.width / 2 - 150, this.game.config.height / 2 + 50, "Restart", {
+        const restart = this.add.text(this.game.config.width / 2 - 150, this.game.config.height / 2 + 50, "Restart", {
                 fontSize: "24px",
                 fill: "#ffffff"
             });
@@ -165,8 +165,8 @@ class Scene2 extends Phaser.Scene{
         restart.setInteractive();
 
         restart.on("pointerup", () => {
-            this.restart();
-
+            // this.restart();
+            this.music.destroy();
             modalBackground.destroy();
             winText.destroy();
             restart.destroy();
