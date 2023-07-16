@@ -2,9 +2,14 @@ class Scene1 extends Phaser.Scene{
     constructor(){
         super("bootGame");
     }
-    
+
     preload(){
         this.load.image("background", "../level1/waterbg.png");
+        this.load.image("underground", "../underground/underBG.png");
+        this.load.image("row", "../underground/horizontalBlock.png");
+        this.load.image("column", "../underground/verticalBlock.png");
+        this.load.image("goal", "../underground/treasure.png");
+        this.load.image("ghost", "../underground/ghostPic.png");
         this.load.image("ship1","/level1/ship-large2.png");
         this.load.image("bridge-l6","/level1/bridge-l6.png");
         this.load.image("bridge-l5","/level1/bridge-l5.png");
@@ -27,11 +32,18 @@ class Scene1 extends Phaser.Scene{
         this.load.image("verticalShort", "../level2_images/vertical-short.png");
         this.load.image("crate", "../level2_images/crate.png");
         
-        this.load.image("door", "/level1/door.png")
+        this.load.image("bomb", "/level1/bombpic.png");
+        this.load.image("door", "/level1/door.png");
+
+        this.load.audio("lvl6Audio", "../underground/marioUnderground.mp3");
+        this.load.audio("lvl1Audio", "/level1/LegendOfZelda.mp3");
+        this.load.audio("lvl2Audio", "../lvl2_audio/theme-song.mp3");
     }
     
     create(){
         this.add.text(20, 20, "Loading the game....");
         this.scene.start("playGame");
     }
+
 }
+

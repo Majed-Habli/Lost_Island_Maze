@@ -4,7 +4,7 @@ window.onload=function(){
         width : 600,
         height: 600,
         backgroundColor: 0x000000,
-        scene: [Scene1,Scene2,Scene3],
+        scene: [Scene1,Scene2,Scene3,Scene6],
         pixelArt:true,
         physics:{
             default:"arcade",
