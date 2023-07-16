@@ -212,6 +212,7 @@ class Scene3 extends Phaser.Scene{
             winText.destroy();
             restart.destroy();
             nextLevelButton.destroy();
+            this.scene.start("island2");
         });
     }
 }
