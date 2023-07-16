@@ -24,6 +24,15 @@ img {
   height: 100%;
 }
 
+#title {
+  font-family: "Pirata One", cursive;
+  position: absolute;
+  top: 15%;
+  left: 43%;
+  font-size: 6rem;
+  /* z-index: 3; */
+}
+
 .shore {
   height: 150px;
 }
@@ -45,14 +54,6 @@ img {
   height: 100vh; */
 }
 
-.text {
-  position: absolute;
-  margin-left: auto;
-  margin-top: auto;
-  text-align: center;
-  display: none;
-}
-
 #left-island {
   position: absolute;
   width: 700px;
@@ -71,7 +72,7 @@ img {
 
 .rocks-ship-container {
   width: 100%;
-  height: 500px;
+  height: 570px;
 
   display: flex;
   align-items: center;
@@ -176,7 +177,7 @@ img {
   justify-content: center;
 
   position: absolute;
-  left: 43%;
+  left: 44%;
   top: 10%;
   /* transform: translate(50%, 50%); */
 }
@@ -202,7 +203,7 @@ img {
   width: 200px;
 }
 
-.water-bg {
+.water-bg-container {
   /* background-color: linear-gradient(
     90deg,
     rgba(75, 182, 207, 1) 0%,
@@ -226,6 +227,33 @@ img {
   padding-bottom: 100px;
 }
 
+#welcome {
+  font-family: "Pirata One", cursive;
+  position: absolute;
+  top: 120%;
+  left: 1%;
+  font-size: 5rem;
+  /* z-index: 3; */
+}
+
+#enjoy {
+  font-family: "Pirata One", cursive;
+  color: white;
+  position: absolute;
+  top: 135%;
+  right: 1%;
+  font-size: 5rem;
+}
+
+.sand-bg {
+  height: 50vh;
+  width: 100%;
+
+  position: absolute;
+  /* z-index: -1; */
+  top: 150%;
+}
+
 .btn {
   -webkit-border-radius: 20;
   -moz-border-radius: 20;
@@ -233,13 +261,14 @@ img {
   font-family: Arial;
   color: #ffffff;
   font-size: 50px;
-  background: #ffbc75;
-  padding: 10px 20px 10px 20px;
+  /* background: #ffbc75; */
+  background: #4bb6cf;
+  padding: 10px 80px 10px 80px;
   text-decoration: none;
+  z-index: 1;
 }
-
 .btn:hover {
-  background: #ae8400;
+  background: #ffbc75;
   text-decoration: none;
 }
 
@@ -252,7 +281,7 @@ img {
 
 #crab1 {
   position: absolute;
-  width: 300px;
+
   right: 2%;
   top: 180%;
   width: 150px;
@@ -260,8 +289,28 @@ img {
 
 #crab2 {
   position: absolute;
-  width: 300px;
+  width: 150px;
   left: 2%;
   top: 180%;
-  width: 150px;
+}
+
+.star-fish {
+  position: absolute;
+  right: 25%;
+  top: 155%;
+  width: 200px;
+}
+
+.sea-weed1 {
+  position: absolute;
+  width: 400px;
+  right: 2%;
+  top: 170%;
+}
+
+.sea-weed2 {
+  position: absolute;
+  width: 300px;
+  left: 7%;
+  top: 150%;
 }

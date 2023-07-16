@@ -6,11 +6,18 @@
     <link rel="stylesheet" href="./styles/index.css" />
     <script src="./javascript/phaser.min.js"></script>
 
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Lost World</title>
   </head>
   <body>
     <section class="parallax">
-      <h2 class="text">Lost World</h2>
+      <h1 id="title">Lost World</h1>
       <div class="bg-img">
         <img src="/website_images/sky.png" alt="Background Image" />
       </div>
@@ -83,18 +90,40 @@
       </div>
     </section>
 
-    <!-- <section > -->
-    <div class="water-bg">
+    <div class="water-bg-container">
+      <h1 id="welcome">Welcome</h1>
+      <h1 id="enjoy">Enjoy The Game</h1>
+      <img
+        class="sand-bg"
+        src="website_images/sand-bg.png"
+        alt="Sand Background"
+      />
       <img
         class="chest-img"
         src="website_images/treasure-chest.png"
         alt="Treasure Chest Image"
       />
-      <button class="btn">Start Game</button>
+
+      <button id="startBtn" class="btn">Start</button>
+
       <img id="crab1" src="website_images/crab2.png" alt="Crab Image" />
       <img id="crab2" src="website_images/crab2.png" alt="Crab Image" />
+      <img
+        class="star-fish"
+        src="website_images/star-fish.png"
+        alt="Star Fish Image"
+      />
+      <img
+        class="sea-weed1"
+        src="website_images/sea-weed1.png"
+        alt="Sea Weed Image"
+      />
+      <img
+        class="sea-weed2"
+        src="website_images/sea-weed2.png"
+        alt="Sea Weed Image"
+      />
     </div>
-    <!-- </section> -->
 
     <!-- <script src="./javascript/game.js"></script>
     <script src="./javascript/Scene1.js"></script>
