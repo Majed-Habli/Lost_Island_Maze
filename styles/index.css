@@ -72,6 +72,17 @@ img {
   position: absolute;
 }
 
+.rocks-ship-container,
+.ship-container,
+.cloud-left-container,
+.cloud-right-container-top,
+.cloud-right-container-bot,
+.anchor-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .bg-img img {
   width: 100%;
   height: 100%;
@@ -111,10 +122,6 @@ img {
   width: 100%;
   height: 570px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   right: 50%;
   top: 10%;
   transform: translate(50%, 50%);
@@ -123,9 +130,6 @@ img {
 .ship-container {
   width: 100%;
   height: 600px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
 }
 
 .ship-img {
@@ -145,22 +149,14 @@ img {
 }
 
 .rocks-img {
-  /* position: absolute; */
-
   width: 100%;
   height: 220px;
-
   z-index: 2;
 }
 
 .cloud-left-container {
   width: 100%;
   height: 500px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   right: 50%;
   top: 0;
 }
@@ -172,11 +168,6 @@ img {
 .cloud-right-container-top {
   width: 100%;
   height: 500px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   left: 40%;
   top: -10%;
 }
@@ -184,11 +175,6 @@ img {
 .cloud-right-container-bot {
   width: 100%;
   height: 500px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   left: 44%;
   top: 10%;
 }
@@ -196,11 +182,6 @@ img {
 .anchor-container {
   width: 200px;
   height: 100px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   right: 50%;
   bottom: 25%;
   transform: translate(50%, 50%);
