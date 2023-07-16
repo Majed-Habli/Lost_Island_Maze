@@ -190,9 +190,8 @@ class Scene6 extends Phaser.Scene
             nextLevelButton.setInteractive();
 
             nextLevelButton.on("pointerup", () => {
-
-                this.scene.start("lvl6");
-
+                this.music.destroy();
+                this.scene.start("playGame");
                 modalBackground.destroy();
                 winText.destroy();
                 nextLevelButton.destroy();
@@ -201,23 +200,21 @@ class Scene6 extends Phaser.Scene
         }
 
 
-        const restart = this
-            .add
-            .text(this.game.config.width / 2 - 150, this.game.config.height / 2 + 50, "Restart", {
-                fontSize: "24px",
-                fill: "#ffffff"
-            });
-        restart.setOrigin(0.5);
-        restart.setInteractive();
-
-        restart.on("pointerup", () => {
-            this.restart();
-
+        const restart = this.add.text(this.game.config.width / 2 - 150, this.game.config.height / 2 + 50, "Restart", {
+            fontSize: "24px",
+            fill: "#ffffff"
+          });
+          restart.setOrigin(0.5);
+          restart.setInteractive();
+        
+          restart.on("pointerup", () => {
+            this.music.destroy();
             modalBackground.destroy();
             winText.destroy();
             restart.destroy();
             nextLevelButton.destroy();
-        });
+            this.scene.start("lvl6");
+          });
     }
 
 }
