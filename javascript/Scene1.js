@@ -16,11 +16,32 @@ class Scene1 extends Phaser.Scene{
         this.load.image("player", "/level1/player.png");
         this.load.image("bomb", "/level1/bombpic.png");
         this.load.image("door", "/level1/door.png");
+        this.load.image("Islandfloor", "/level3/islandFloor.png");
+        this.load.image("Islandback", "/level3/islandWater.png");
+        this.load.image("grassblock", "/level3/grassblock.png");
+        this.load.image("verGrassblock", "/level3/grassBlockver.png");
+        this.load.image("thickgrass", "/level3/thickgrass.png");
+        this.load.image("vertSmaller", "/level3/vertSmaller.png");
+        this.load.image("horiSmaller", "/level3/horiSmaller.png");
+        this.load.image("vertblock", "/level3/vertblock.png");
+        this.load.image("square", "/level3/square.png");
+        this.load.image("tree", "/level3/tree1.png");
+        this.load.image("thorn", "/level3/thorn1.png");
+        this.load.image("tree2", "/level3/tree2.png");
+
+
+
+
+
+
+
+
+
     }
     
     create(){
         this.add.text(20, 20, "Loading the game....");
-        this.scene.start("playGame");
+        this.scene.start("level3");
     }
 
 }
