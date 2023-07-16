@@ -36,8 +36,10 @@ class Scene5 extends Phaser.Scene {
             .group();
 
         // put the bomb here
-        this.createObstacle(400, 500 / 2, "bomb")
-        this.createObstacle(350, 600 / 2 + 30, "bomb");
+        this.createObstacle(330, 215, "bomb")
+        this.createObstacle(150, 220, "bomb");
+        this.createObstacle(480, 115, "bomb");
+        this.createObstacle(300, 165, "bomb");
 
         this.createObstacle(50, 40, "tree4");
         this.createObstacle(10, 40, "tree4");
