@@ -4,11 +4,11 @@ class Scene5 extends Phaser.Scene {
     }
 
     create() {
-        this.background = this
+        this.backgroundLevel5 = this
             .add
             .image(0, 0, "level5Back");
         this
-            .background
+            .backgroundLevel5
             .setOrigin(0, 0);
 
         this.player = this
@@ -16,147 +16,160 @@ class Scene5 extends Phaser.Scene {
             .add
             .sprite(400, 600 / 2 + 90, "player");
 
-        // create tree One
-        this.createTreeFour(50, 40);
-        this.createTreeFour(10, 40);
-        this.createTreeFour(30, 40);
-        this.createTreeFour(50, 40);
-        this.createTreeFour(70, 40);
-        this.createTreeFour(90, 40);
-        this.createTreeFour(110, 40);
-        this.createTreeFour(130, 40);
-        this.createTreeFour(150, 40);
-        this.createTreeFour(170, 40);
-        this.createTreeFour(190, 40);
-        this.createTreeFour(280, 40);
-        this.createTreeFour(300, 40);
-        this.createTreeFour(320, 40);
-        this.createTreeFour(340, 40);
-        this.createTreeFour(360, 40);
-        this.createTreeFour(380, 40);
-        this.createTreeFour(400, 40);
-        this.createTreeFour(420, 40);
-        this.createTreeFour(440, 40);
-        this.createTreeFour(460, 40);
-        this.createTreeFour(480, 40);
-        this.createTreeFour(500, 40);
-        this.createTreeFour(520, 40);
-        this.createTreeFour(540, 40);
-        this.createTreeFour(560, 40);
-        this.createTreeFour(580, 40);
+        // this
+        //     .cameras
+        //     .main
+        //     .startFollow(this.player);
+        // this
+        //     .cameras
+        //     .main
+        //     .setZoom(Math.max(this.scale.width / 430, this.scale.width / 430));
+        // const camera = this.cameras.main;
+        // // camera.scaleMode = Phaser.ScaleManager.SHOW_RESIZE;
+        // camera.startFollow(this.player)
 
-        this.createTreeFour(20, 100);
-        this.createTreeFour(20, 150);
-        this.createTreeFour(20, 200);
-        this.createTreeFour(20, 250);
-        this.createTreeFour(20, 300);
-        this.createTreeFour(20, 350);
+        this.obstacleGroup = this
+            .physics
+            .add
+            .group();
 
-        this.createBushTwo(590, 100);
-        this.createBushTwo(590, 130);
-        this.createBushTwo(590, 160);
-        this.createBushTwo(590, 190);
-        this.createBushOne(590, 220);
-        this.createBushTwo(590, 250);
-        this.createBushTwo(590, 280);
-        this.createBushTwo(590, 310);
-        this.createBushTwo(590, 340);
-        this.createBushOne(590, 220);
+        // put the bomb here
+        this.createObstacle(400, 500 / 2, "bomb")
+        this.createObstacle(350, 600 / 2 + 30, "bomb");
 
-        this.createBush(100, 360);
-        this.createBush(200, 360);
-        this.createBush(300, 360);
-        this.createBushOne(360, 360);
-        this.createBush(470, 360);
-        this.createBushOne(360, 300);
-        this.createBushOne(360, 270);
-        this.createBushOne(360, 240);
-        this.createBushOne(330, 240);
+        this.createObstacle(50, 40, "tree4");
+        this.createObstacle(10, 40, "tree4");
+        this.createObstacle(30, 40, "tree4");
+        this.createObstacle(50, 40, "tree4");
+        this.createObstacle(70, 40, "tree4");
+        this.createObstacle(90, 40, "tree4");
+        this.createObstacle(110, 40, "tree4");
+        this.createObstacle(130, 40, "tree4");
+        this.createObstacle(150, 40, "tree4");
+        this.createObstacle(170, 40, "tree4");
+        this.createObstacle(190, 40, "tree4");
+        this.createObstacle(280, 40, "tree4");
+        this.createObstacle(300, 40, "tree4");
+        this.createObstacle(320, 40, "tree4");
+        this.createObstacle(340, 40, 'tree4');
+        this.createObstacle(360, 40, 'tree4');
+        this.createObstacle(380, 40, 'tree4');
+        this.createObstacle(400, 40, 'tree4');
+        this.createObstacle(420, 40, 'tree4');
+        this.createObstacle(440, 40, 'tree4');
+        this.createObstacle(460, 40, 'tree4');
+        this.createObstacle(480, 40, 'tree4');
+        this.createObstacle(500, 40, 'tree4');
+        this.createObstacle(520, 40, 'tree4');
+        this.createObstacle(540, 40, 'tree4');
+        this.createObstacle(560, 40, 'tree4');
+        this.createObstacle(580, 40, 'tree4');
+        this.createObstacle(20, 100, "tree4");
+        this.createObstacle(20, 150, "tree4");
+        this.createObstacle(20, 200, "tree4");
+        this.createObstacle(20, 250, "tree4");
+        this.createObstacle(20, 300, "tree4");
+        this.createObstacle(20, 350, "tree4");
 
-        this.createBushOne(270, 240);
-        this.createBushOne(240, 240);
-        this.createBushOne(240, 270);
-        this.createBushOne(240, 300);
-        this.createBushOne(270, 300);
-        this.createBushOne(300, 300);
+        this.createObstacle(590, 100, "bushTwo");
+        this.createObstacle(590, 130, "bushTwo");
+        this.createObstacle(590, 160, "bushTwo");
+        this.createObstacle(590, 190, "bushTwo");
+        this.createObstacle(590, 220, "bushOne");
+        this.createObstacle(590, 250, "bushTwo");
+        this.createObstacle(590, 280, "bushTwo");
+        this.createObstacle(590, 310, "bushTwo");
+        this.createObstacle(590, 340, "bushTwo");
+        this.createObstacle(590, 220, "bushOne");
+        this.createObstacle(100, 360, "bush");
+        this.createObstacle(200, 360, "bush");
+        this.createObstacle(300, 360, "bush");
+        this.createObstacle(360, 360, "bushOne");
+        this.createObstacle(470, 360, "bush");
+        this.createObstacle(360, 300, "bushOne");
+        this.createObstacle(360, 270, "bushOne");
+        this.createObstacle(360, 240, "bushOne");
+        this.createObstacle(330, 240, "bushOne");
+        this.createObstacle(270, 240, "bushOne");
+        this.createObstacle(240, 240, "bushOne");
+        this.createObstacle(240, 270, "bushOne");
+        this.createObstacle(240, 300, "bushOne");
+        this.createObstacle(270, 300, "bushOne");
+        this.createObstacle(300, 300, "bushOne");
+        this.createObstacle(440, 270, "bushOne");
+        this.createObstacle(440, 240, "bushOne");
+        this.createObstacle(440, 210, "bushOne");
+        this.createObstacle(410, 190, "bushOne");
+        this.createObstacle(380, 190, "bushOne");
+        this.createObstacle(350, 190, "bushOne");
+        this.createObstacle(320, 190, "bushOne");
+        this.createObstacle(290, 190, "bushOne");
+        this.createObstacle(270, 190, "bushOne");
+        this.createObstacle(270, 165, "bushOne");
+        this.createObstacle(270, 210, "bushOne");
+        this.createObstacle(500, 250, "bushOne");
+        this.createObstacle(500, 220, "bushOne");
+        this.createObstacle(500, 190, "bushOne");
+        this.createObstacle(500, 170, "bushOne");
+        this.createObstacle(500, 140, "bushOne");
+        this.createObstacle(470, 140, "bushOne");
+        this.createObstacle(440, 140, "bushOne");
+        this.createObstacle(410, 140, "bushOne");
+        this.createObstacle(350, 100, "bushOne");
+        this.createObstacle(350, 120, "bushOne");
+        this.createObstacle(350, 140, "bushOne");
+        this.createObstacle(380, 140, "bushOne");
+        this.createObstacle(290, 140, "bushOne");
+        this.createObstacle(260, 140, "bushOne");
+        this.createObstacle(290, 90, "bushOne");
+        this.createObstacle(230, 140, "bushOne");
+        this.createObstacle(200, 140, "bushOne");
+        this.createObstacle(200, 160, "bushOne");
+        this.createObstacle(200, 180, "bushOne");
+        this.createObstacle(180, 200, "bushOne");
+        this.createObstacle(180, 230, "bushOne");
+        this.createObstacle(180, 260, "bushOne");
+        this.createObstacle(180, 280, "bushOne");
+        this.createObstacle(180, 300, "bushOne");
+        this.createObstacle(160, 300, "bushOne");
+        this.createObstacle(140, 300, "bushOne");
+        this.createObstacle(80, 300, "bushOne");
+        this.createObstacle(60, 300, "bushOne");
+        this.createObstacle(80, 275, "bushOne");
+        this.createObstacle(80, 250, "bushOne");
+        this.createObstacle(80, 225, "bushOne");
+        this.createObstacle(80, 200, "bushOne");
+        this.createObstacle(100, 200, "bushOne");
+        this.createObstacle(125, 200, "bushOne");
+        this.createObstacle(125, 175, "bushOne");
+        this.createObstacle(125, 125, "bushOne");
+        this.createObstacle(100, 125, "bushOne");
+        this.createObstacle(75, 125, "bushOne");
+        this.createObstacle(75, 150, "bushOne");
+        this.createObstacle(130, 250, "bushOne");
+        this.createObstacle(130, 275, "bushOne");
+        this.createObstacle(130, 300, "bushOne");
+        this.createObstacle(200, 75, "bushOne");
+        this.createObstacle(175, 75, "bushOne");
+        this.createObstacle(150, 75, "bushOne");
+        this.createObstacle(125, 75, "bushOne");
+        this.createObstacle(100, 75, "bushOne");
+        this.createObstacle(75, 75, "bushOne");
+        this.createObstacle(50, 75, "bushOne");
+        this.createObstacle(220, 70, "bushOne");
+        this.createObstacle(220, 95, "bushOne");
+        this.createObstacle(220, 120, "bushOne");
 
-        this.createBushOne(440, 270);
-        this.createBushOne(440, 240);
-        this.createBushOne(440, 210);
-        this.createBushOne(410, 190);
-        this.createBushOne(380, 190);
-        this.createBushOne(350, 190);
-        this.createBushOne(320, 190);
-        this.createBushOne(290, 190);
-        this.createBushOne(270, 190);
-        this.createBushOne(270, 165);
-        this.createBushOne(270, 210);
-
-        this.createBushOne(500, 250);
-        this.createBushOne(500, 220);
-        this.createBushOne(500, 190);
-        this.createBushOne(500, 170);
-        this.createBushOne(500, 140);
-        this.createBushOne(470, 140);
-        this.createBushOne(440, 140);
-        this.createBushOne(410, 140);
-
-        this.createBushOne(350, 100);
-        this.createBushOne(350, 120);
-        this.createBushOne(350, 140);
-        this.createBushOne(380, 140);
-        this.createBushOne(290, 140);
-        
-        this.createBushOne(290, 90);
-        this.createBushOne(260, 140);
-        this.createBushOne(230, 140);
-        this.createBushOne(200, 140);
-        this.createBushOne(200, 160);
-        this.createBushOne(200, 180);
-        this.createBushOne(180, 200);
-
-        this.createBushOne(180, 260);
-        this.createBushOne(180, 280);
-        this.createBushOne(180, 300);
-        this.createBushOne(160, 300);
-        this.createBushOne(140, 300);
-        this.createBushOne(80, 300);
-        this.createBushOne(60, 300);
-        this.createBushOne(80, 275);
-        this.createBushOne(80, 250);
-        this.createBushOne(80, 225);
-        this.createBushOne(80, 200);
-        this.createBushOne(100, 200);
-        this.createBushOne(125, 200);
-        this.createBushOne(125, 175);
-        this.createBushOne(125, 125);
-        this.createBushOne(100, 125);
-        this.createBushOne(75, 125);
-        this.createBushOne(75, 150);
-        this.createBushOne(130, 250);
-        this.createBushOne(130, 275);
-        this.createBushOne(130, 300);
-        this.createBushOne(200, 75);
-        this.createBushOne(175, 75);
-        this.createBushOne(150, 75);
-        this.createBushOne(125, 75);
-        this.createBushOne(100, 75);
-        this.createBushOne(75, 75);
-        this.createBushOne(50, 75);
-        this.createBushOne(220, 70);
-        this.createBushOne(220, 95);
-        this.createBushOne(220, 120);
-
-        this.createBush(570, 360);
-        this.createBush(470, 300);
+        this.createObstacle(570, 360, 'bush');
+        this.createObstacle(470, 300, 'bush');
 
         this
             .physics
             .world
-            .enable([this.player, this.background]);
+            .enable([this.player, this.backgroundLevel5]);
 
         this
-            .background
+            .backgroundLevel5
             .body
             .setCollideWorldBounds(true);
         this
@@ -177,251 +190,27 @@ class Scene5 extends Phaser.Scene {
         this
             .physics
             .add
-            .collider(this.player, this.treeGroup, this.handleCollision, null, this);
-
-        this.showWinModal();
-    }
-
-    createBushOne(x, y) {
-        const tree = this
-            .physics
-            .add
-            .sprite(x, y, "bushOne");
-
-        if (!this.treeGroup) {
-            this.treeGroup = this
-                .physics
-                .add
-                .group();
-        }
-
-        this
-            .treeGroup
-            .add(tree);
-
-        tree.setCollideWorldBounds(true);
-        tree
-            .body
-            .setAllowGravity(false);
-        tree
-            .body
-            .setImmovable(true);
-    }
-
-    createBushTwo(x, y) {
-        const tree = this
-            .physics
-            .add
-            .sprite(x, y, "bushTwo");
-
-        if (!this.treeGroup) {
-            this.treeGroup = this
-                .physics
-                .add
-                .group();
-        }
-
-        this
-            .treeGroup
-            .add(tree);
-
-        tree.setCollideWorldBounds(true);
-        tree
-            .body
-            .setAllowGravity(false);
-        tree
-            .body
-            .setImmovable(true);
-    }
-
-    createBushThree(x, y) {
-        const tree = this
-            .physics
-            .add
-            .sprite(x, y, "bushThree");
-
-        if (!this.treeGroup) {
-            this.treeGroup = this
-                .physics
-                .add
-                .group();
-        }
-
-        this
-            .treeGroup
-            .add(tree);
-
-        tree.setCollideWorldBounds(true);
-        tree
-            .body
-            .setAllowGravity(false);
-        tree
-            .body
-            .setImmovable(true);
-    }
-
-    createBushTB(x, y) {
-        const tree = this
-            .physics
-            .add
-            .sprite(x, y, "bushTB");
-
-        if (!this.treeGroup) {
-            this.treeGroup = this
-                .physics
-                .add
-                .group();
-        }
-
-        this
-            .treeGroup
-            .add(tree);
-
-        tree.setCollideWorldBounds(true);
-        tree
-            .body
-            .setAllowGravity(false);
-        tree
-            .body
-            .setImmovable(true);
-    }
-
-    createBush(x, y) {
-        const tree = this
-            .physics
-            .add
-            .sprite(x, y, "bush");
-
-        if (!this.treeGroup) {
-            this.treeGroup = this
-                .physics
-                .add
-                .group();
-        }
-
-        this
-            .treeGroup
-            .add(tree);
-
-        tree.setCollideWorldBounds(true);
-        tree
-            .body
-            .setAllowGravity(false);
-        tree
-            .body
-            .setImmovable(true);
-    }
-
-    createTreeFour(x, y) {
-        const tree = this
-            .physics
-            .add
-            .sprite(x, y, "tree4");
-
-        if (!this.treeGroup) {
-            this.treeGroup = this
-                .physics
-                .add
-                .group();
-        }
-
-        this
-            .treeGroup
-            .add(tree);
-
-        tree.setCollideWorldBounds(true);
-        tree
-            .body
-            .setAllowGravity(false);
-        tree
-            .body
-            .setImmovable(true);
-    }
-
-    createTreeThree(x, y) {
-        const tree = this
-            .physics
-            .add
-            .sprite(x, y, "tree3");
-
-        if (!this.treeGroup) {
-            this.treeGroup = this
-                .physics
-                .add
-                .group();
-        }
-
-        this
-            .treeGroup
-            .add(tree);
-
-        tree.setCollideWorldBounds(true);
-        tree
-            .body
-            .setAllowGravity(false);
-        tree
-            .body
-            .setImmovable(true);
-    }
-
-    createTreeTwo(x, y) {
-        const tree = this
-            .physics
-            .add
-            .sprite(x, y, "tree2");
-
-        if (!this.treeGroup) {
-            this.treeGroup = this
-                .physics
-                .add
-                .group();
-        }
-
-        this
-            .treeGroup
-            .add(tree);
-
-        tree.setCollideWorldBounds(true);
-        tree
-            .body
-            .setAllowGravity(false);
-        tree
-            .body
-            .setImmovable(true);
-    }
-
-    createTreeOne(x, y) {
-        const tree = this
-            .physics
-            .add
-            .sprite(x, y, "tree1");
-
-        if (!this.treeGroup) {
-            this.treeGroup = this
-                .physics
-                .add
-                .group();
-        }
-
-        this
-            .treeGroup
-            .add(tree);
-
-        tree.setCollideWorldBounds(true);
-        tree
-            .body
-            .setAllowGravity(false);
-        tree
-            .body
-            .setImmovable(true);
+            .collider(this.player, this.obstacleGroup, this.handleCollision, null, this);
     }
 
     handleCollision(player, object) {
-        player.setVelocity(0, 0);
+        if (object.texture.key === "bomb") {
+            this.restart();
+        } else {
+            player.setVelocity(0, 0);
+        }
     }
 
     update() {
         this.movePlayerManager();
+
+        const targetX = 245;
+        const targetY = 35;
+        const tolerance = 5; // Adjust the tolerance as needed
+
+        if (Math.abs(this.player.x - targetX) <= tolerance && Math.abs(this.player.y - targetY) <= tolerance) {
+            this.showWinModal();
+        }
     }
 
     movePlayerManager() {
@@ -452,10 +241,10 @@ class Scene5 extends Phaser.Scene {
 
     showWinModal() {
         // Create a modal background
-        var modalBackground = this
+        const modalBackground = this
             .add
             .graphics();
-        modalBackground.fillStyle(0x000000, 0.7);
+        modalBackground.fillStyle(0x000000, 0.9);
         modalBackground.fillRect(0, 0, this.game.config.width, this.game.config.height);
 
         var winText = this
@@ -466,7 +255,7 @@ class Scene5 extends Phaser.Scene {
             });
         winText.setOrigin(0.5);
 
-        var nextLevelButton = this
+        const nextLevelButton = this
             .add
             .text(this.game.config.width / 2 + 100, this.game.config.height / 2 + 50, "Next Level", {
                 fontSize: "24px",
@@ -476,16 +265,15 @@ class Scene5 extends Phaser.Scene {
         nextLevelButton.setInteractive();
 
         nextLevelButton.on("pointerup", () => {
-
             this.goToNextLevel();
 
             modalBackground.destroy();
             winText.destroy();
             nextLevelButton.destroy();
-            restart.destroy()
+            restart.destroy();
         });
 
-        var restart = this
+        const restart = this
             .add
             .text(this.game.config.width / 2 - 150, this.game.config.height / 2 + 50, "Restart", {
                 fontSize: "24px",
@@ -500,15 +288,37 @@ class Scene5 extends Phaser.Scene {
             modalBackground.destroy();
             winText.destroy();
             restart.destroy();
-            nextLevelButton.destroy()
+            nextLevelButton.destroy();
         });
     }
 
     goToNextLevel() {
-        console.log("go to next level")
+        console.log("go to next level");
     }
 
     restart() {
-        console.log("restart")
+        console.log("restart");
+        this
+            .scene
+            .start("playGame");
     }
+
+    createObstacle(x, y, image) {
+        let obstacle = this
+            .physics
+            .add
+            .sprite(x, y, image);
+        this
+            .obstacleGroup
+            .add(obstacle);
+
+        obstacle.setCollideWorldBounds(true);
+        obstacle
+            .body
+            .setImmovable(true);
+        obstacle
+            .body
+            .setAllowGravity(true);
+    }
+
 }

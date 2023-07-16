@@ -13,19 +13,21 @@ class Scene1 extends Phaser.Scene {
         this
             .load
             .image("bridge", "/level1/bridge-vertical.png");
-        // this     .load     .image("player", "/level1/player.png");
+        // this
+        //     .load
+        //     .image("player", "/level1/player.png");
         this
             .load
             .spritesheet("player", "./../level1/player.png", {
                 frameWidth: 16,
                 frameHeight: 16
             });
-        this
-            .load
-            .spritesheet("tree1", "./../website_images/level5Images/TreeOne.png", {
-                frameWidth: 50,
-                frameHeight: 50
-            });
+        // this
+        //     .load
+        //     .spritesheet("tree1", "./../website_images/level5Images/TreeOne.png", {
+        //         frameWidth: 50,
+        //         frameHeight: 50
+        //     });
         this
             .load
             .image("tree2", "./../website_images/level5Images/TreeTwo.png");
@@ -53,6 +55,39 @@ class Scene1 extends Phaser.Scene {
         this
             .load
             .image("bushThree", "./../website_images/level5Images/bushThree.png");
+
+        this
+            .load
+            .image("background", "../level1/waterbg.png");
+        this
+            .load
+            .image("ship1", "/level1/ship-large2.png");
+        this
+            .load
+            .image("bridge-l6", "/level1/bridge-l6.png");
+        this
+            .load
+            .image("bridge-l5", "/level1/bridge-l5.png");
+        this
+            .load
+            .image("bridge-hl5", "/level1/bridge-hl5.png");
+        this
+            .load
+            .image("bridge-l3", "/level1/bridge-l3.png");
+        this
+            .load
+            .image("bridge-l2", "/level1/bridge-l2.png");
+        this
+            .load
+            .image("bridge-vl2", "/level1/bridge-vl2.png");
+        this
+            .load
+            .image("bridge", "/level1/bridge.png");
+        // this.load.image("player", "/level1/player.png");
+        this
+            .load
+            .image("door", "/level1/door.png")
+        this.load.image("bomb", "./../website_images/bomb.png")
     }
 
     create() {
@@ -63,4 +98,7 @@ class Scene1 extends Phaser.Scene {
             .scene
             .start("level5");
     }
+
+    
+
 }
