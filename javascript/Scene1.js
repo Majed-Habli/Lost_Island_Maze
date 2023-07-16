@@ -9,6 +9,7 @@ class Scene1 extends Phaser.Scene{
         this.load.image("row", "../underground/horizontalBlock.png");
         this.load.image("column", "../underground/verticalBlock.png");
         this.load.image("goal", "../underground/treasure.png");
+        this.load.audio("undergroundSong", "../underground/marioUnderground.mp3");
         this.load.image("ship1","/level1/ship-large2.png");
         this.load.image("bridge-l6","/level1/bridge-l6.png");
         this.load.image("bridge-l5","/level1/bridge-l5.png");
@@ -25,4 +26,5 @@ class Scene1 extends Phaser.Scene{
         this.add.text(20, 20, "Loading the game....");
         this.scene.start("playGame");
     }
+
 }

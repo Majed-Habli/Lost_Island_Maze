@@ -61,6 +61,14 @@ class Scene6 extends Phaser.Scene {
             alert('Congrats');
             game.destroy();
         }, null, this);
+
+
+        this.music = this.sound.add('undergroundSong', {
+            volume: 0.2,
+            loop: true
+        });
+        this.music.play();
+
     }
 
     update() {
@@ -79,4 +87,6 @@ class Scene6 extends Phaser.Scene {
             this.player.setVelocityY(300);
         }
     }
+
+
 }
