@@ -3,6 +3,13 @@ class Scene5 extends Phaser.Scene {
         super("level5");
     }
 
+    preload() {
+        this.obstacleGroup = this
+            .physics
+            .add
+            .group();
+    }
+
     create() {
         this.backgroundLevel5 = this
             .add
@@ -26,17 +33,12 @@ class Scene5 extends Phaser.Scene {
             .music
             .play();
         // this     .cameras     .main     .startFollow(this.player); this     .cameras
-        //    .main     .setZoom(Math.max(this.scale.width / 430, this.scale.width /
+        // .main     .setZoom(Math.max(this.scale.width / 430, this.scale.width /
         // 430)); const camera = this.cameras.main; // camera.scaleMode =
         // Phaser.ScaleManager.SHOW_RESIZE; camera.startFollow(this.player)
-
-        this.obstacleGroup = this
-            .physics
-            .add
-            .group();
-
-        // put the bomb here
-        this.createObstacle(330, 215, "bomb")
+        // this.obstacleGroup = this     .physics     .add     .group(); put the bomb
+        // here
+        this.createObstacle(330, 215, "bomb");
         this.createObstacle(150, 220, "bomb");
         this.createObstacle(480, 115, "bomb");
         this.createObstacle(300, 165, "bomb");
@@ -55,19 +57,19 @@ class Scene5 extends Phaser.Scene {
         this.createObstacle(280, 40, "tree4");
         this.createObstacle(300, 40, "tree4");
         this.createObstacle(320, 40, "tree4");
-        this.createObstacle(340, 40, 'tree4');
-        this.createObstacle(360, 40, 'tree4');
-        this.createObstacle(380, 40, 'tree4');
-        this.createObstacle(400, 40, 'tree4');
-        this.createObstacle(420, 40, 'tree4');
-        this.createObstacle(440, 40, 'tree4');
-        this.createObstacle(460, 40, 'tree4');
-        this.createObstacle(480, 40, 'tree4');
-        this.createObstacle(500, 40, 'tree4');
-        this.createObstacle(520, 40, 'tree4');
-        this.createObstacle(540, 40, 'tree4');
-        this.createObstacle(560, 40, 'tree4');
-        this.createObstacle(580, 40, 'tree4');
+        this.createObstacle(340, 40, "tree4");
+        this.createObstacle(360, 40, "tree4");
+        this.createObstacle(380, 40, "tree4");
+        this.createObstacle(400, 40, "tree4");
+        this.createObstacle(420, 40, "tree4");
+        this.createObstacle(440, 40, "tree4");
+        this.createObstacle(460, 40, "tree4");
+        this.createObstacle(480, 40, "tree4");
+        this.createObstacle(500, 40, "tree4");
+        this.createObstacle(520, 40, "tree4");
+        this.createObstacle(540, 40, "tree4");
+        this.createObstacle(560, 40, "tree4");
+        this.createObstacle(580, 40, "tree4");
         this.createObstacle(20, 100, "tree4");
         this.createObstacle(20, 150, "tree4");
         this.createObstacle(20, 200, "tree4");
@@ -164,43 +166,66 @@ class Scene5 extends Phaser.Scene {
         this.createObstacle(220, 95, "bushOne");
         this.createObstacle(220, 120, "bushOne");
 
-        this.createObstacle(570, 360, 'bush');
-        this.createObstacle(470, 300, 'bush');
+        this.createObstacle(570, 360, "bush");
+        this.createObstacle(470, 300, "bush");
 
-        this
-            .physics
-            .world
-            .enable([this.player, this.backgroundLevel5]);
-
-        this
-            .backgroundLevel5
-            .body
-            .setCollideWorldBounds(true);
+        // this
+        //     .physics
+        //     .world
+        //     .enable([this.player, this.backgroundLevel5]);
+        // this
+        //     .backgroundLevel5
+        //     .body
+        //     .setCollideWorldBounds(true);
         this
             .player
             .body
             .setCollideWorldBounds(true);
-
-        this.cursors = this
+        // this.cursors = this
+        //     .input
+        //     .keyboard
+        //     .createCursorKeys();
+        this.keys = this
             .input
             .keyboard
-            .createCursorKeys();
+            .addKeys("W,A,S,D");
+        this
+            .physics
+            .add
+            .collider(this.player, this.obstacleGroup, this.handleCollision, null, this);
+
+
+            
+        this
+            .player
+            .body
+            .setCollideWorldBounds(true);
+        this
+            .physics
+            .add
+            .collider(this.player, this.obstacleGroup, this.handleCollision, null, this);
 
         this.keys = this
             .input
             .keyboard
             .addKeys("W,A,S,D");
 
+        function enterCollision() {
+            this
+                .scene
+                .start("level5");
+        }
+
         this
             .physics
             .add
-            .collider(this.player, this.obstacleGroup, this.handleCollision, null, this);
+            .collider(this.player, this.door, enterCollision, undefined, this);
     }
 
     handleCollision(player, object) {
         if (object.texture.key === "bomb") {
             this.restart();
-            console.log(window.score)
+            console.log(window.score);
         } else {
             player.setVelocity(0, 0);
         }
@@ -325,5 +350,4 @@ class Scene5 extends Phaser.Scene {
             .body
             .setAllowGravity(true);
     }
-
 }
