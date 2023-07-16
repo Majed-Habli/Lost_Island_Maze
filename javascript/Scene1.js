@@ -14,13 +14,13 @@ class Scene1 extends Phaser.Scene{
         this.load.image("bridge-vl2","/level1/bridge-vl2.png");
         this.load.image("bridge","/level1/bridge.png");
         this.load.image("player", "/level1/player.png");
-        this.load.image("door", "/level1/door.png")
+        this.load.image("bomb", "/level1/bombpic.png");
+        this.load.image("door", "/level1/door.png");
     }
     
     create(){
         this.add.text(20, 20, "Loading the game....");
         this.scene.start("playGame");
     }
-
 
 }
