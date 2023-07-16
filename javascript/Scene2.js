@@ -32,7 +32,7 @@ class Scene2 extends Phaser.Scene{
 
         this.door = this.physics.add.staticSprite(300, 50, "door")
 
-        this.player = this.physics.add.image(600/2-0, 600/2 +240,"player");
+        this.player = this.physics.add.sprite(600/2-0, 600/2 +240,"player");
 
         this.player.body.setCollideWorldBounds(true);
         this.physics.add.collider(this.player,this.obstacleGroup,this.handleCollision, null, this);
