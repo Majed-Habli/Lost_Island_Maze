@@ -26,13 +26,11 @@ class Scene2 extends Phaser.Scene{
         this.createObstacle(600/2+180, 600/2 -240,"bridge-vl2");
         this.createObstacle(600/2+60, 600/2 -200,"bridge-vl2");
         this.createObstacle(600/2+100, 600/2 -100,"bomb");
-        this.createObstacle(600/2+100, 600/2 +160,"bomb");
-        this.createObstacle(600/2-100, 600/2 +140,"bomb");
-        this.createObstacle(600/2-30, 600/2 +10,"bomb");
+        this.createObstacle(600/2+100, 600/2 -120,"bomb");
 
         this.door = this.physics.add.staticSprite(300, 50, "door")
 
-        this.player = this.physics.add.sprite(600/2-0, 600/2 +240,"player");
+        this.player = this.physics.add.image(600/2-0, 600/2 +240,"player");
 
         this.player.body.setCollideWorldBounds(true);
         this.physics.add.collider(this.player,this.obstacleGroup,this.handleCollision, null, this);
