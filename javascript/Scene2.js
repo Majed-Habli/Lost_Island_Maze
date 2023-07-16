@@ -37,7 +37,7 @@ class Scene2 extends Phaser.Scene{
 
         function handleWaterCollision(player, water) {
         }
-        this.scene.start("island1");
+        // this.scene.start("island2");
 
         this.keys = this.input.keyboard.addKeys("W,A,S,D");
         

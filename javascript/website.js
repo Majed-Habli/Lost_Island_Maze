@@ -24,25 +24,13 @@ window.addEventListener('scroll', () => {
 
 });
 
-let startBtn = document.getElementById('startBtn')
+let startBtn = document.getElementById('startBtn');
 console.log(startBtn)
 
-// startBtn.addEventListener('click',() => {
-//     // alert('pressed');
-//     window.location.href = "./javascript/scene1.js";
-    
-//         // startBtn.html('<script type ="text/javascript" src="./javascript/game.js"></script>');
+startBtn.addEventListener('click',() => {
+    console.log('pressed');
+    window.location.href = "/game.html";
        
-// });
+});
 
-// function startGame () {
-//     // alert('pressed');
-//     startBtn.html('<script type ="text/javascript" src="./javascript/scene1.js"></script>');
-// }
-
-// function startGame() {
-//     var script = document.createElement('script');
-//     script.src = './javascript/scene1.js';
-//     document.head.appendChild(script);
-//   }
   

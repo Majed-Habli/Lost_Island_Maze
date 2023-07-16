@@ -1,6 +1,6 @@
 class Scene3 extends Phaser.Scene{
     constructor(){
-        super("island1");
+        super("island2");
     }
     create(){
 
