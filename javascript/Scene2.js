@@ -148,7 +148,7 @@ class Scene2 extends Phaser.Scene{
 
                 nextLevelButton.on("pointerup", () => {
                     this.music.destroy();
-                    this.scene.start("lvl6");
+                    this.scene.start("level3");
                     modalBackground.destroy();
                     winText.destroy();
                     nextLevelButton.destroy();
