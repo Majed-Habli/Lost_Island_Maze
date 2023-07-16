@@ -88,6 +88,9 @@ class Scene1 extends Phaser.Scene {
             .load
             .image("door", "/level1/door.png")
         this.load.image("bomb", "./../website_images/bomb.png")
+
+        // music
+        this.load.audio("level5BackgroundMusic", "./../Music/X2Download.app - Evergreen Wish (128 kbps).mp3")
     }
 
     create() {

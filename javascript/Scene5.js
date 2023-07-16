@@ -16,17 +16,19 @@ class Scene5 extends Phaser.Scene {
             .add
             .sprite(400, 600 / 2 + 90, "player");
 
-        // this
-        //     .cameras
-        //     .main
-        //     .startFollow(this.player);
-        // this
-        //     .cameras
-        //     .main
-        //     .setZoom(Math.max(this.scale.width / 430, this.scale.width / 430));
-        // const camera = this.cameras.main;
-        // // camera.scaleMode = Phaser.ScaleManager.SHOW_RESIZE;
-        // camera.startFollow(this.player)
+        this.music = this
+            .sound
+            .add("level5BackgroundMusic", {
+                volume: 0.2,
+                loop: true
+            });
+        this
+            .music
+            .play();
+        // this     .cameras     .main     .startFollow(this.player); this     .cameras
+        //    .main     .setZoom(Math.max(this.scale.width / 430, this.scale.width /
+        // 430)); const camera = this.cameras.main; // camera.scaleMode =
+        // Phaser.ScaleManager.SHOW_RESIZE; camera.startFollow(this.player)
 
         this.obstacleGroup = this
             .physics
@@ -196,6 +198,7 @@ class Scene5 extends Phaser.Scene {
     handleCollision(player, object) {
         if (object.texture.key === "bomb") {
             this.restart();
+            console.log(window.score)
         } else {
             player.setVelocity(0, 0);
         }
@@ -244,7 +247,7 @@ class Scene5 extends Phaser.Scene {
         const modalBackground = this
             .add
             .graphics();
-        modalBackground.fillStyle(0x000000, 0.9);
+        modalBackground.fillStyle(0x000000, 0.4);
         modalBackground.fillRect(0, 0, this.game.config.width, this.game.config.height);
 
         var winText = this
@@ -300,7 +303,7 @@ class Scene5 extends Phaser.Scene {
         console.log("restart");
         this
             .scene
-            .start("playGame");
+            .start("level5");
     }
 
     createObstacle(x, y, image) {
