@@ -23,21 +23,6 @@ class Scene5 extends Phaser.Scene {
             .add
             .sprite(400, 600 / 2 + 90, "player");
 
-        this.music = this
-            .sound
-            .add("level5BackgroundMusic", {
-                volume: 0.2,
-                loop: true
-            });
-        this
-            .music
-            .play();
-        // this     .cameras     .main     .startFollow(this.player); this     .cameras
-        // .main     .setZoom(Math.max(this.scale.width / 430, this.scale.width /
-        // 430)); const camera = this.cameras.main; // camera.scaleMode =
-        // Phaser.ScaleManager.SHOW_RESIZE; camera.startFollow(this.player)
-        // this.obstacleGroup = this     .physics     .add     .group(); put the bomb
-        // here
         this.createObstacle(330, 215, "bomb");
         this.createObstacle(150, 220, "bomb");
         this.createObstacle(480, 115, "bomb");
@@ -169,37 +154,6 @@ class Scene5 extends Phaser.Scene {
         this.createObstacle(570, 360, "bush");
         this.createObstacle(470, 300, "bush");
 
-        // this
-        //     .physics
-        //     .world
-        //     .enable([this.player, this.backgroundLevel5]);
-        // this
-        //     .backgroundLevel5
-        //     .body
-        //     .setCollideWorldBounds(true);
-        this
-            .player
-            .body
-            .setCollideWorldBounds(true);
-        // this.cursors = this
-        //     .input
-        //     .keyboard
-        //     .createCursorKeys();
-        this.keys = this
-            .input
-            .keyboard
-            .addKeys("W,A,S,D");
-        this
-            .physics
-            .add
-            .collider(this.player, this.obstacleGroup, this.handleCollision, null, this);
-
-
-            
-        this
-            .player
-            .body
-            .setCollideWorldBounds(true);
         this
             .physics
             .add
@@ -209,26 +163,46 @@ class Scene5 extends Phaser.Scene {
             .input
             .keyboard
             .addKeys("W,A,S,D");
+        // window.score = 5;
 
         function enterCollision() {
-            this
-                .scene
-                .start("level5");
+            this.IncrementScore();
+            this.showWinModal();
+            this.player.body.moves = false;
         }
+
+        this.scoreText = this
+            .add
+            .text(20, 20, "Score: " );
 
         this
             .physics
             .add
-            .collider(this.player, this.door, enterCollision, undefined, this);
+            .collider(this.player, this.goal, enterCollision, undefined, this);
+
+        this.player.setCollideWorldBounds(true);
+
     }
 
     handleCollision(player, object) {
         if (object.texture.key === "bomb") {
-            this.restart();
-            console.log(window.score);
+            this.DecrementScore()
+            console.log(window.score)
         } else {
             player.setVelocity(0, 0);
         }
+    }
+
+    IncrementScore() {
+        this.score = this.score + 5;
+        console.log(this.score);
+        return;
+    }
+
+    DecrementScore() {
+        this.score = this.score - 1;
+        console.log(this.score);
+        return;
     }
 
     update() {
@@ -239,6 +213,10 @@ class Scene5 extends Phaser.Scene {
         const tolerance = 5; // Adjust the tolerance as needed
 
         if (Math.abs(this.player.x - targetX) <= tolerance && Math.abs(this.player.y - targetY) <= tolerance) {
+            this.showWinModal();
+        }
+
+        if (this.score == 0) {
             this.showWinModal();
         }
     }
@@ -270,11 +248,11 @@ class Scene5 extends Phaser.Scene {
     }
 
     showWinModal() {
-        // Create a modal background
         const modalBackground = this
             .add
             .graphics();
-        modalBackground.fillStyle(0x000000, 0.4);
+
+        modalBackground.fillStyle(0x000000, 0.9);
         modalBackground.fillRect(0, 0, this.game.config.width, this.game.config.height);
 
         var winText = this
@@ -285,23 +263,15 @@ class Scene5 extends Phaser.Scene {
             });
         winText.setOrigin(0.5);
 
-        const nextLevelButton = this
-            .add
-            .text(this.game.config.width / 2 + 100, this.game.config.height / 2 + 50, "Next Level", {
-                fontSize: "24px",
-                fill: "#ffffff"
-            });
-        nextLevelButton.setOrigin(0.5);
-        nextLevelButton.setInteractive();
+        // var winScore = this
+        //     .add
+        //     .text(this.game.config.width / 2, this.game.config.height / 2 - 90, "score is :" + score);
 
-        nextLevelButton.on("pointerup", () => {
-            this.goToNextLevel();
-
-            modalBackground.destroy();
-            winText.destroy();
-            nextLevelButton.destroy();
-            restart.destroy();
-        });
+        if (this.score == 0) {
+            
+            winText.setText("You lost!!");
+            this.player.body.moves = false;
+        }
 
         const restart = this
             .add
@@ -313,12 +283,10 @@ class Scene5 extends Phaser.Scene {
         restart.setInteractive();
 
         restart.on("pointerup", () => {
-            this.restart();
-
+            this.restart(); 
             modalBackground.destroy();
             winText.destroy();
             restart.destroy();
-            nextLevelButton.destroy();
         });
     }
 
