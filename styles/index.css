@@ -1,0 +1,264 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: "Pirata One", cursive;
+}
+
+img {
+  display: block;
+}
+
+#title {
+  position: absolute;
+  top: 15%;
+  left: 43%;
+  font-size: 6rem;
+  color: #ffb874;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+#welcome {
+  position: absolute;
+  top: 120%;
+  left: 1%;
+  font-size: 5rem;
+}
+
+#enjoy {
+  color: white;
+  position: absolute;
+  top: 135%;
+  right: 1%;
+  font-size: 5rem;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+#crab1 {
+  position: absolute;
+
+  right: 2%;
+  top: 180%;
+  width: 150px;
+}
+
+#crab2 {
+  position: absolute;
+  width: 150px;
+  left: 2%;
+  top: 180%;
+}
+
+.left-island,
+.right-island,
+.rocks-ship-container,
+.rocks-container,
+.rocks-img,
+.cloud-left-container,
+.cloud-right-container-top,
+.cloud-right-container-bot,
+.anchor-container,
+.sand-bg,
+.chest-img,
+.star-fish,
+.sea-weed1,
+.sea-weed2 {
+  position: absolute;
+}
+
+.rocks-ship-container,
+.ship-container,
+.cloud-left-container,
+.cloud-right-container-top,
+.cloud-right-container-bot,
+.anchor-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.shore {
+  height: 150px;
+}
+
+.left-island {
+  width: 700px;
+  height: 400px;
+  bottom: 2rem;
+}
+
+.right-island {
+  width: 700px;
+  height: 400px;
+  bottom: 2rem;
+  right: 0;
+}
+
+.sea {
+  width: 100%;
+  position: relative;
+  height: 120%;
+  z-index: -1;
+}
+
+.parallax {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.rocks-ship-container {
+  width: 100%;
+  height: 570px;
+
+  right: 50%;
+  top: 10%;
+  transform: translate(50%, 50%);
+}
+
+.ship-container {
+  width: 100%;
+  height: 600px;
+}
+
+.ship-img {
+  height: 100%;
+  width: 550px;
+  height: 400px;
+  z-index: 3;
+}
+
+.rocks-container {
+  height: 400px;
+  width: 100%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.rocks-img {
+  width: 100%;
+  height: 220px;
+  z-index: 2;
+}
+
+.cloud-left-container {
+  width: 100%;
+  height: 500px;
+  right: 50%;
+  top: 0;
+}
+
+.cloud-6 img {
+  margin-left: 600px;
+}
+
+.cloud-right-container-top {
+  width: 100%;
+  height: 500px;
+  left: 40%;
+  top: -10%;
+}
+
+.cloud-right-container-bot {
+  width: 100%;
+  height: 500px;
+  left: 44%;
+  top: 10%;
+}
+
+.anchor-container {
+  width: 200px;
+  height: 100px;
+  right: 50%;
+  bottom: 25%;
+  transform: translate(50%, 50%);
+
+  z-index: 4;
+}
+
+.anchor-container img {
+  width: 200px;
+}
+
+.water-bg-container {
+  background: rgb(104, 251, 192);
+  background: radial-gradient(
+    circle,
+    rgba(104, 251, 192, 1) 0%,
+    rgba(75, 182, 207, 1) 100%
+  );
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding-bottom: 100px;
+}
+
+.sand-bg {
+  height: 50vh;
+  width: 100%;
+
+  top: 150%;
+}
+
+.btn {
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 50px;
+  background: #4bb6cf;
+  padding: 10px 80px 10px 80px;
+  text-decoration: none;
+  z-index: 1;
+}
+.btn:hover {
+  background: #ffbc75;
+  text-decoration: none;
+}
+
+.chest-img {
+  width: 300px;
+  left: 25%;
+  top: 168%;
+}
+
+.star-fish {
+  right: 25%;
+  top: 155%;
+  width: 200px;
+}
+
+.sea-weed1 {
+  width: 400px;
+  right: 2%;
+  top: 170%;
+}
+
+.sea-weed2 {
+  width: 300px;
+  left: 7%;
+  top: 150%;
+}

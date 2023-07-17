@@ -112,15 +112,15 @@ class Scene6 extends Phaser.Scene
         this.player.setVelocity(0);
 
         if (this.keys.A.isDown) {
-            this.player.setVelocityX(-300);
+            this.player.setVelocityX(-150);
         } else if (this.keys.D.isDown){
-            this.player.setVelocityX(300);
+            this.player.setVelocityX(150);
         }
 
         if (this.keys.W.isDown) {
             this.player.setVelocityY(-300);
         } else if (this.keys.S.isDown) {
-            this.player.setVelocityY(300);
+            this.player.setVelocityY(150);
         }
 
         if (score == 0) {

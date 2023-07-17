@@ -1,20 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./styles/game.css">
-    <script src="./javascript/phaser.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/index.css" />
 
-    <title>Document</title>
-</head>
-<body>
-    <script src="./javascript/game.js"></script>
-    <script src="./javascript/Scene1.js"></script>
-    <script src="./javascript/Scene2.js"></script>
-    <script src="./javascript/Scene4.js"></script>
-    <script src="./javascript/Scene6.js"></script>
+    <title>Lost World</title>
+  </head>
+  <body>
+    <section class="parallax">
+      <h1 id="title">Lost World</h1>
+      <div class="bg-img">
+        <img src="/website_images/sky.png" alt="Background Image" />
+      </div>
 
-</body>
+      <!-- Clouds Section -->
+      <div id="left-clouds" class="cloud-left-container">
+        <div class="cloud-6">
+          <img src="website_images/cloud6.png" alt="Cloud 6" />
+        </div>
+        <div class="Cloud-2">
+          <img src="website_images/cloud2.png" alt="Cloud 2" />
+        </div>
+        <div class="Cloud-3">
+          <img src="website_images/cloud3.png" alt="Cloud 3" />
+        </div>
+        <div class="Cloud-4">
+          <img src="website_images/cloud4.png" alt="Cloud 4" />
+        </div>
+      </div>
+
+      <div id="right-clouds-top" class="cloud-right-container-top">
+        <div class="cloud7">
+          <img src="website_images/cloud7.png" alt="cloud 7" />
+        </div>
+        <div class="cloud5">
+          <img src="website_images/cloud5.png" alt="cloud 5" />
+        </div>
+      </div>
+
+      <div id="right-clouds-bot" class="cloud-right-container-bot">
+        <div class="cloud8">
+          <img src="website_images/cloud8.png" alt="cloud 8" />
+        </div>
+        <div class="cloud3">
+          <img src="website_images/cloud3.png" alt="cloud 3" />
+        </div>
+        <div class="cloud1">
+          <img src="website_images/cloud1.png" alt="cloud 1" />
+        </div>
+      </div>
+
+      <!-- Rocks and Ship Section -->
+      <div class="rocks-ship-container">
+        <div class="rocks-container">
+          <img class="rocks-img" src="website_images/rocks.png" alt="Rocks" />
+        </div>
+
+        <div class="ship-container">
+          <img class="ship-img" src="website_images/ship.png" alt="Ship" />
+        </div>
+      </div>
+      <div class="anchor-container">
+        <img id="anchor" src="website_images/anchor.png" alt="Anchor Image" />
+      </div>
+
+      <div id="shores" class="shore">
+        <img
+          class="sea"
+          src="/website_images/bottom_water.png"
+          alt="Bottom Water"
+        />
+        <img
+          class="left-island"
+          src="/website_images/left_island.png"
+          alt="left Island"
+        />
+        <img
+          class="right-island"
+          src="/website_images/right_island.png"
+          alt="right Island"
+        />
+      </div>
+    </section>
+
+    <!-- Bottom Section -->
+    <div class="water-bg-container">
+      <h1 id="welcome">Welcome</h1>
+      <h1 id="enjoy">Enjoy The Game</h1>
+      <img
+        class="sand-bg"
+        src="website_images/sand-bg.png"
+        alt="Sand Background"
+      />
+      <img
+        class="chest-img"
+        src="website_images/treasure-chest.png"
+        alt="Treasure Chest Image"
+      />
+
+      <button id="startBtn" class="btn" type="button">Start</button>
+
+      <img id="crab1" src="website_images/crab2.png" alt="Crab Image" />
+      <img id="crab2" src="website_images/crab2.png" alt="Crab Image" />
+      <img
+        class="star-fish"
+        src="website_images/star-fish.png"
+        alt="Star Fish Image"
+      />
+      <img
+        class="sea-weed1"
+        src="website_images/sea-weed1.png"
+        alt="Sea Weed Image"
+      />
+      <img
+        class="sea-weed2"
+        src="website_images/sea-weed2.png"
+        alt="Sea Weed Image"
+      />
+    </div>
+    <script src="./javascript/website.js"></script>
+  </body>
 </html>

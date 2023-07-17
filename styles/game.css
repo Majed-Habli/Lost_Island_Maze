@@ -8,3 +8,10 @@ canvas {
     width: 600px;
     border-radius: 15px;
 }
+.script_container{
+    position: absolute;
+    right: 50%;
+    top:50%;
+    transform:translate(50%,50%);
+    z-index: 2;
+}

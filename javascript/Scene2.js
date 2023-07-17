@@ -26,7 +26,9 @@ class Scene2 extends Phaser.Scene{
         this.createObstacle(600/2+180, 600/2 -240,"bridge-vl2");
         this.createObstacle(600/2+60, 600/2 -200,"bridge-vl2");
         this.createObstacle(600/2+100, 600/2 -100,"bomb");
-        this.createObstacle(600/2+100, 600/2 -120,"bomb");
+        this.createObstacle(600/2+100, 600/2 +160,"bomb");
+        this.createObstacle(600/2-100, 600/2 +120,"bomb");
+        this.createObstacle(600/2-40, 600/2 +40,"bomb");
 
         this.door = this.physics.add.staticSprite(300, 50, "door")
 
@@ -47,6 +49,7 @@ class Scene2 extends Phaser.Scene{
         this.scoreText =this.add.text(20, 20, "Score: " + score);
 
         this.physics.add.collider(this.player, this.door,enterCollision, undefined, this);
+
 
         this.music = this.sound.add('lvl1Audio',
         {
@@ -83,15 +86,15 @@ class Scene2 extends Phaser.Scene{
         this.player.setVelocity(0);
 
         if (this.keys.A.isDown) {
-            this.player.setVelocityX(-300);
+            this.player.setVelocityX(-150);
         } else if (this.keys.D.isDown) {
-            this.player.setVelocityX(300);
+            this.player.setVelocityX(150);
         }
 
         if (this.keys.W.isDown) {
-            this.player.setVelocityY(-300);
+            this.player.setVelocityY(-150);
         } else if (this.keys.S.isDown) {
-            this.player.setVelocityY(300);
+            this.player.setVelocityY(150);
         }
 
         if(score==0){
@@ -148,7 +151,7 @@ class Scene2 extends Phaser.Scene{
 
                 nextLevelButton.on("pointerup", () => {
                     this.music.destroy();
-                    this.scene.start("level3");
+                    this.scene.start("island2");
                     modalBackground.destroy();
                     winText.destroy();
                     nextLevelButton.destroy();
